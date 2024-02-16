@@ -27,5 +27,6 @@ folke 写的 flash 只能跳转英文,而我这个能够跳转中文,当然现�
 - [x] 使用回车来给 task 打勾
 - [x] 使用 Alt+UpArrow/DownArrow 来进行上下行进行互换
 - [x] lualine 添加 cmp-im 启动标识可以参考 cmp-coplit
-
-
+- [x] cmp-zhh 在 telescope 中使用
+- [ ] obsidian.nvim 使用
+- [ ] 把 LazyVim 的 markdown 配置给删除掉

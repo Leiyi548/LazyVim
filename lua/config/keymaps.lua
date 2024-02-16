@@ -21,7 +21,7 @@ map({"n","x","o"}, "S", function() require("flash-zhh").jump() end, { desc = "Fl
 map({ "n" }, "<leader>zh", function()
   vim.notify(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
 end)
-map({ "n", "x", "i" }, "<C-Space>", function()
+map({ "n", "x", "i" }, "<C-g>", function()
   vim.notify(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
 end)
 
