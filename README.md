@@ -22,7 +22,10 @@ folke 写的 flash 只能跳转英文,而我这个能够跳转中文,当然现�
 
 ## TODO
 
-- [ ] 添加 autocommand 
-- [ ] fugitive 窗口用 q 来进行退出
-- [ ] lualine 添加 cmp-im 启动标识可以参考 cmp-coplit
+- [x] fugitive 窗口用 q 来进行退出
+- [x] 添加 autocommand
+- [x] 使用回车来给 task 打勾
+- [x] 使用 Alt+UpArrow/DownArrow 来进行上下行进行互换
+- [x] lualine 添加 cmp-im 启动标识可以参考 cmp-coplit
+
 
