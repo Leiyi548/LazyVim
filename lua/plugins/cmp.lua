@@ -34,7 +34,8 @@ return {
         ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
+        -- ["<C-Space>"] = cmp.mapping.complete(),
+        ["<Space>"] = cmp.mapping(require("cmp_im").select(), { "i" }),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ["<Tab>"] = cmp.mapping.confirm({
@@ -45,7 +46,6 @@ return {
           cmp.abort()
           fallback()
         end,
-        ["<Space>"] = cmp.mapping(require("cmp_im").select(), { "i" }),
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -59,7 +59,11 @@ return {
         format = function(entry, item)
           local icons = require("lazyvim.config").icons.kinds
           if icons[item.kind] then
-            item.kind = icons[item.kind] .. item.kind .. " [" .. entry.source.name .. "]"
+            if entry.source.name == "IM" then
+              item.kind = icons[item.kind] .. item.kind .. " [" .. "虎" .. "]"
+            else
+              item.kind = icons[item.kind] .. item.kind .. " [" .. entry.source.name .. "]"
+            end
           end
           return item
         end,

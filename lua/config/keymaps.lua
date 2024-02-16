@@ -18,6 +18,9 @@ map("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Switch buffer by 
 map({"n","x","o"}, "S", function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code)" })
 
 -- toggle cmp_im
-map({ "n", "v", "c", "i" }, "<leader>zh", function()
+map({ "n" }, "<leader>zh", function()
+  vim.notify(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
+end)
+map({ "n", "x", "i" }, "<C-Space>", function()
   vim.notify(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
 end)
