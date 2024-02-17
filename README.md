@@ -3,7 +3,7 @@
 这是我的配置,用起来一般般啊,你也能用很mbbb。
 
 ## cmp-im-zhh.nvim
- 
+
 可以用这个来输入中文,码表的虎码输入法的,用起来非常的爽,配合 neovide 的丝滑的光标,让人感觉那叫一个爽!
 
 当然你想爽的话,还是要打单,再说一句,打单爽的!
@@ -18,7 +18,7 @@ folke 写的 flash 只能跳转英文,而我这个能够跳转中文,当然现�
 
 ## fugitive
 
-这是我在 neovim 上用过最好的 git 管理插件,最主要的是你用了它,你还能用 cmp-im-zhh,就能直接打中文,想一想就觉的美妙.
+这是我在 neovim 上用过最好的 git 管理插件,最主要的是你用了它,你还能用 cmp-im-zhh,就能直接打中文,想一想就觉的非常美妙.
 
 ## TODO
 
@@ -29,8 +29,10 @@ folke 写的 flash 只能跳转英文,而我这个能够跳转中文,当然现�
 - [x] lualine 添加 cmp-im 启动标识可以参考 cmp-coplit
 - [x] cmp-zhh 在 telescope 中使用
 - [x] 把 LazyVim 的 markdown 配置给删除掉
-- [ ] 文件保存时,会有 notify 消息提示,什么时候保存（参考我以前的配置）
+- [x] 文件保存时,会有 notify 消息提示,什么时候保存（参考我以前的配置）
 - [ ] obsidian.nvim 使用
   - [ ] 让 obsidian.nvim 的库在 windows 在正确的位置
-- [ ] Telescope 配置
+- [ ] 更改 Telescope 配置（参考我以前的配置）
 - [ ] 更改 cmp_im_zhh.nvim 的 README
+- [ ] flash-zhh.nvim 添加 remote 操作
+- [ ] tokynight 的 comment 不要斜体

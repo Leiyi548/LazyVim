@@ -3,6 +3,9 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
+-- 让 ctrl+delete 等于 ctrl+w 去删除光标前面的单词
+map({ "i", "c" }, "<C-BS>", "<C-w>", { desc = "Delete word" })
+
 -- Home End
 map({ "n", "x", "o" }, "<S-h>", "0", { desc = "Home" })
 map({ "n", "x", "o" }, "<S-l>", "$", { desc = "End" })
@@ -12,6 +15,7 @@ map({ "n", "i", "v" }, "<C-s>", function()
   vim.cmd("w")
   local time = os.date("%T")
   vim.api.nvim_command('echohl @class |  echom "saved ' .. time .. '"')
+  -- 模仿发送<esc> 进入 normal 模式
   -- 创建一个 Normal 模式的模拟按键序列
   local normal_keys = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
   -- 发送模拟按键序列
@@ -23,6 +27,14 @@ map("n", "<leader>h", "<cmd>nohl<cr>", { desc = "clear highlight" })
 
 -- telescope buffer
 map("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Switch buffer by telescope" })
+
+-- gitsign
+map("n", "<leader>gj", "<cmd>gitsign prev_hunk<cr>", { desc = "Jump to the previous hunk in the current buffer." })
+map("n", "<leader>gk", "<cmd>gitsign next_hunk<cr>", { desc = "Jump to the next hunk in the current buffer." })
+-- stylua: ignore start
+map("n", "<leader>gpl", "<cmd>gitsign preview_hunk_inline<cr>", { desc = "Jump to the next hunk in the current buffer." })
+map( "n", "<leader>gpf", "<cmd>gitsign preview_hunk<cr>", { desc = "Preview the hunk at the cursor position in a floating window." })
+-- stylua: ignore end
 
 -- flash-zhh.nvim 有些时候不会加载这个插件
 -- stylua: ignore
@@ -40,18 +52,3 @@ map("i", "<M-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
 map("i", "<M-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 map("v", "<M-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<M-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
-
--- vim commandmode git alias
-vim.cmd([[cnoreabbrev <expr> git getcmdtype() == ':' && getcmdline() ==# 'git' ? 'Git' : 'git']])
--- git branch
-vim.cmd([[cnoreabbrev <expr> gb getcmdtype() == ':' && getcmdline() ==# 'gb' ? 'Git branch' : 'gb']])
-vim.cmd([[cnoreabbrev <expr> gba getcmdtype() == ':' && getcmdline() ==# 'gba' ? 'Git branch -a' : 'gba']])
--- git checkout
-vim.cmd([[cnoreabbrev <expr> gco getcmdtype() == ':' && getcmdline() ==# 'gco' ? 'Git checkout' : 'gco']])
-vim.cmd([[cnoreabbrev <expr> ge getcmdtype() == ':' && getcmdline() ==# 'ge' ? 'Gedit' : 'ge']])
-vim.cmd([[cnoreabbrev <expr> gr getcmdtype() == ':' && getcmdline() ==# 'gr' ? 'Gread' : 'gr']])
--- git stash
-vim.cmd([[cnoreabbrev <expr> gst getcmdtype() == ':' && getcmdline() ==# 'gst' ? 'Git stash' : 'gst']])
-vim.cmd([[cnoreabbrev <expr> gsts getcmdtype() == ':' && getcmdline() ==# 'gsts' ? 'Git stash save' : 'gsts']])
-vim.cmd([[cnoreabbrev <expr> gstl getcmdtype() == ':' && getcmdline() ==# 'gstl' ? 'Git stash list' : 'gstl']])
-vim.cmd([[cnoreabbrev <expr> gstc getcmdtype() == ':' && getcmdline() ==# 'gstc' ? 'Git stash clear' : 'gstc']])
