@@ -28,5 +28,9 @@ folke 写的 flash 只能跳转英文,而我这个能够跳转中文,当然现�
 - [x] 使用 Alt+UpArrow/DownArrow 来进行上下行进行互换
 - [x] lualine 添加 cmp-im 启动标识可以参考 cmp-coplit
 - [x] cmp-zhh 在 telescope 中使用
+- [x] 把 LazyVim 的 markdown 配置给删除掉
+- [ ] 文件保存时,会有 notify 消息提示,什么时候保存（参考我以前的配置）
 - [ ] obsidian.nvim 使用
-- [ ] 把 LazyVim 的 markdown 配置给删除掉
+  - [ ] 让 obsidian.nvim 的库在 windows 在正确的位置
+- [ ] Telescope 配置
+- [ ] 更改 cmp_im_zhh.nvim 的 README

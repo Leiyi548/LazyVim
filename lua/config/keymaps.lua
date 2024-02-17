@@ -7,6 +7,17 @@ local map = vim.keymap.set
 map({ "n", "x", "o" }, "<S-h>", "0", { desc = "Home" })
 map({ "n", "x", "o" }, "<S-l>", "$", { desc = "End" })
 
+-- fast save
+map({ "n", "i", "v" }, "<C-s>", function()
+  vim.cmd("w")
+  local time = os.date("%T")
+  vim.api.nvim_command('echohl @class |  echom "saved ' .. time .. '"')
+  -- 创建一个 Normal 模式的模拟按键序列
+  local normal_keys = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
+  -- 发送模拟按键序列
+  vim.api.nvim_feedkeys(normal_keys, "n", true)
+end)
+
 -- nohl
 map("n", "<leader>h", "<cmd>nohl<cr>", { desc = "clear highlight" })
 
@@ -18,10 +29,7 @@ map("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Switch buffer by 
 map({"n","x","o"}, "S", function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code)" })
 
 -- toggle cmp_im
-map({ "n" }, "<leader>zh", function()
-  vim.notify(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
-end)
-map({ "n", "x", "i" }, "<C-g>", function()
+map({ "n" }, "<leader>cn", function()
   vim.notify(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
 end)
 

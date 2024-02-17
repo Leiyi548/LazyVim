@@ -7,7 +7,7 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "saadparwaiz1/cmp_luasnip",
-    "yehuohan/cmp-im",
+    "Leiyi548/cmp_im_zhh",
   },
   opts = function()
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -66,17 +66,14 @@ return {
       formatting = {
         fields = { "abbr", "kind", "menu" },
         format = function(entry, item)
-          local icons = require("lazyvim.config").icons.kinds
-          if icons[item.kind] then
-            if entry.source.name == "IM" then
-              -- item.kind = icons[item.kind] .. item.kind
-              item.kind = "(" .. item.kind .. ")"
-              item.menu = " [" .. "虎" .. "]"
-            else
-              -- item.kind = icons[item.kind] .. item.kind
-              item.kind = "(" .. item.kind .. ")"
-              item.menu = " [" .. entry.source.name .. "]"
-            end
+          if entry.source.name == "IM" then
+            -- item.kind = icons[item.kind] .. item.kind
+            item.kind = "(" .. item.kind .. ")"
+            item.menu = " [" .. "虎码" .. "]"
+          else
+            -- item.kind = icons[item.kind] .. item.kind
+            item.kind = "(" .. item.kind .. ")"
+            item.menu = " [" .. entry.source.name .. "]"
           end
           return item
         end,
