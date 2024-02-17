@@ -7,8 +7,8 @@ local map = vim.keymap.set
 map({ "i", "c" }, "<C-BS>", "<C-w>", { desc = "Delete word" })
 
 -- Home End
-map({ "n", "x", "o" }, "<S-h>", "0", { desc = "Home" })
-map({ "n", "x", "o" }, "<S-l>", "$", { desc = "End" })
+-- map({ "n", "x", "o" }, "<S-h>", "0", { desc = "Home" })
+-- map({ "n", "x", "o" }, "<S-l>", "$", { desc = "End" })
 
 -- fast save
 map({ "n", "i", "v" }, "<C-s>", function()
@@ -27,14 +27,6 @@ map("n", "<leader>h", "<cmd>nohl<cr>", { desc = "clear highlight" })
 
 -- telescope buffer
 map("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Switch buffer by telescope" })
-
--- gitsign
-map("n", "<leader>gj", "<cmd>gitsign prev_hunk<cr>", { desc = "Jump to the previous hunk in the current buffer." })
-map("n", "<leader>gk", "<cmd>gitsign next_hunk<cr>", { desc = "Jump to the next hunk in the current buffer." })
--- stylua: ignore start
-map("n", "<leader>gpl", "<cmd>gitsign preview_hunk_inline<cr>", { desc = "Jump to the next hunk in the current buffer." })
-map( "n", "<leader>gpf", "<cmd>gitsign preview_hunk<cr>", { desc = "Preview the hunk at the cursor position in a floating window." })
--- stylua: ignore end
 
 -- flash-zhh.nvim 有些时候不会加载这个插件
 -- stylua: ignore
