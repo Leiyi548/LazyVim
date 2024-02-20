@@ -1,5 +1,5 @@
 return {
-  "folke/flash.nvim",
+  "Leiyi548/flash.nvim",
   keys = {
     -- stylua: ignore start
     { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },

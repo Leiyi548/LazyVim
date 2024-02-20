@@ -1,7 +1,7 @@
 return {
   {
     "Leiyi548/flash-zhh.nvim",
-    dependencies = "folke/flash.nvim",
+    dependencies = "Leiyi548/flash.nvim",
     keys = {
       {
         "S",

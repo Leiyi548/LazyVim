@@ -31,10 +31,9 @@ folke 写的 flash 只能跳转英文,而我这个能够跳转中文,当然现�
 - [x] 把 LazyVim 的 markdown 配置给删除掉
 - [x] 文件保存时,会有 notify 消息提示,什么时候保存（参考我以前的配置）
 - [x] 更改 gitsign 配置
-- [ ] fugitive diffview 窗口按 q 退出
-- [ ] 更改 Telescope 配置（参考我以前的配置）
-- [ ] 更改 cmp_im_zhh.nvim 的 README
-- [ ] flash-zhh.nvim 添加 remote 操作
-- [ ] tokynight 的 comment 不要斜体
+- [x] 更改 cmp_im_zhh.nvim 的 README
+- [x] 更改 Telescope 配置（参考我以前的配置）
+- [x] flash-zhh.nvim 添加 remote 操作
+- [x] 使用 telescope-project 插件
 - [ ] obsidian.nvim 使用
   - [ ] 让 obsidian.nvim 的库在 windows 在正确的位置
