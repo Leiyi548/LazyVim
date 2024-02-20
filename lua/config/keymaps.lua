@@ -33,9 +33,13 @@ map("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Switch buffer by 
 map({"n","x","o"}, "S", function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code)" })
 
 -- toggle cmp_im
-map({ "n" }, "<leader>cn", function()
+map({ "n" }, "<leader><Space>", function()
   vim.notify(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
 end)
+
+-- better ctrl-d ctrl-u
+map("n", "<C-d>", "<C-d>zz", { desc = "scroll down half page and center page" })
+map("n", "<C-u>", "<C-u>zz", { desc = "scroll up half page and center page" })
 
 -- Move Lines
 map("n", "<M-Down>", "<cmd>m .+1<cr>==", { desc = "Move down" })
