@@ -62,7 +62,6 @@ return {
     { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
     -- search
     { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
-    { "<leader>sz", "<cmd>Telescope emoji<cr>", desc = "Registers" },
     { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
     { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
     { "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
@@ -147,11 +146,13 @@ return {
             ["<a-h>"] = find_files_with_hidden,
             ["<C-Down>"] = actions.cycle_history_next,
             ["<C-Up>"] = actions.cycle_history_prev,
-            ["<C-f>"] = actions.preview_scrolling_down,
-            ["<C-b>"] = actions.preview_scrolling_up,
+            ["<C-b>"] = actions.preview_scrolling_left,
+            ["<C-f>"] = actions.preview_scrolling_right,
           },
           n = {
             ["q"] = actions.close,
+            ["<C-b>"] = actions.preview_scrolling_left,
+            ["<C-f>"] = actions.preview_scrolling_right,
           },
         },
         pickers = {

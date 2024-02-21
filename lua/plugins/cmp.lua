@@ -16,8 +16,8 @@ return {
     return {
       enabled = function()
         local buftype = vim.api.nvim_buf_get_option(0, "buftype")
-        if buftype == "TelscopePrompt" then
-          return true
+        if buftype == "TelescopePrompt" then
+          return require("cmp_im").getStatus()
         end
         return true
       end,

@@ -20,7 +20,7 @@ return {
     workspaces = {
       {
         name = "personal",
-        path = require("plenary.path"):new("D:\\myGithub\\People"),
+        path = "D:\\myGithub\\People",
       },
     },
     -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
