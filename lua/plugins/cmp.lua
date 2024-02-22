@@ -111,7 +111,7 @@ return {
       }),
       sources = {
         { name = "buffer" },
-        { name = "IM" },
+        { name = "IM", priority = 999 },
       },
     })
     -- `:` cmdline setup.
@@ -132,7 +132,7 @@ return {
       }),
       sources = require("cmp").config.sources({
         { name = "path" },
-        { name = "IM" },
+        { name = "IM", priority = 999 },
       }, {
         {
           name = "cmdline",
