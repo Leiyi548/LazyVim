@@ -1,8 +1,9 @@
+local vault_path = vim.fn.expand("$obsidian_vault_path")
 return {
   "epwalsh/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
-  enabled = false,
+  enabled = true,
   ft = "markdown",
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   -- event = {
@@ -19,8 +20,12 @@ return {
   opts = {
     workspaces = {
       {
-        name = "personal",
-        path = "D:\\myGithub\\People",
+        name = "myZettelkasten",
+        path = vault_path .. "\\myZettelkasten",
+      },
+      {
+        name = "People",
+        path = vault_path .. "\\People",
       },
     },
     -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
@@ -43,38 +48,6 @@ return {
       alias_format = "%B %-d, %Y",
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
       template = nil,
-    },
-
-    -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
-    completion = {
-      -- Set to false to disable completion.
-      nvim_cmp = true,
-
-      -- Trigger completion at 2 chars.
-      min_chars = 2,
-
-      -- Where to put new notes created from completion. Valid options are
-      --  * "current_dir" - put new notes in same directory as the current buffer.
-      --  * "notes_subdir" - put new notes in the default notes subdirectory.
-      new_notes_location = "current_dir",
-
-      -- Either 'wiki' or 'markdown'.
-      preferred_link_style = "wiki",
-
-      -- Control how wiki links are completed with these (mutually exclusive) options:
-      --
-      -- 1. Whether to add the note ID during completion.
-      -- E.g. "[[Foo" completes to "[[foo|Foo]]" assuming "foo" is the ID of the note.
-      -- Mutually exclusive with 'prepend_note_path' and 'use_path_only'.
-      prepend_note_id = true,
-      -- 2. Whether to add the note path during completion.
-      -- E.g. "[[Foo" completes to "[[notes/foo|Foo]]" assuming "notes/foo.md" is the path of the note.
-      -- Mutually exclusive with 'prepend_note_id' and 'use_path_only'.
-      prepend_note_path = false,
-      -- 3. Whether to only use paths during completion.
-      -- E.g. "[[Foo" completes to "[[notes/foo]]" assuming "notes/foo.md" is the path of the note.
-      -- Mutually exclusive with 'prepend_note_id' and 'prepend_note_path'.
-      use_path_only = false,
     },
 
     -- Optional, configure key mappings. These are the defaults. If you don't want to set any keymappings this
@@ -151,22 +124,6 @@ return {
       time_format = "%H:%M",
       -- A map for custom variables, the key should be the variable and the value a function
       substitutions = {},
-    },
-
-    -- Optional, customize the backlinks interface.
-    backlinks = {
-      -- The default height of the backlinks location list.
-      height = 10,
-      -- Whether or not to wrap lines.
-      wrap = true,
-    },
-
-    -- Optional, customize the tags interface.
-    tags = {
-      -- The default height of the tags location list.
-      height = 10,
-      -- Whether or not to wrap lines.
-      wrap = true,
     },
 
     -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
@@ -254,7 +211,7 @@ return {
       -- The default folder to place images in via `:ObsidianPasteImg`.
       -- If this is a relative path it will be interpreted as relative to the vault root.
       -- You can always override this per image by passing a full path to the command instead of just a filename.
-      img_folder = "assets/imgs", -- This is the default
+      img_folder = "img", -- This is the default
       -- A function that determines the text to insert in the note when pasting an image.
       -- It takes two arguments, the `obsidian.Client` and a plenary `Path` to the image file.
       -- This is the default implementation.

@@ -38,5 +38,7 @@ folke 写的 flash 只能跳转英文,而我这个能够跳转中文,当然现�
   - [x] dashboard.nvim 添加 Telescope Project 按钮P
 - [x] Telescope 添加 scroll left right 命令
 - [x] nvim 添加向左向右移动 zh zl
+- [x] 选中一块区域可以用把英文的标点符号改成中文的
+- [ ] Telescope ignore folder 添加 .obsidian 文件夹
 - [ ] obsidian.nvim 使用
   - [ ] 让 obsidian.nvim 的库在 windows 在正确的位置

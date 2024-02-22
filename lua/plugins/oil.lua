@@ -2,6 +2,7 @@
 return {
   {
     "stevearc/oil.nvim",
+    lazy = false,
     opts = {
       -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
       -- Set to false if you still want to use netrw.
@@ -62,7 +63,7 @@ return {
         ["<C-p>"] = "actions.preview",
         ["<C-c>"] = "actions.close",
         ["q"] = "actions.close",
-        ["<C-l>"] = "actions.refresh",
+        ["gr"] = "actions.refresh",
         ["-"] = "actions.parent",
         ["|"] = "actions.open_cwd",
         ["`"] = "actions.cd",
@@ -154,7 +155,14 @@ return {
         function()
           vim.cmd([[Oil]])
         end,
-        desc = "Open parent directory",
+        desc = "Open parent directory(Oil)",
+      },
+      {
+        "<leader>e",
+        function()
+          require("oil").open_float()
+        end,
+        desc = "Open current directory in float window(Oil)",
       },
     },
   },

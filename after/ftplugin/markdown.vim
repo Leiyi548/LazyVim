@@ -36,5 +36,13 @@ function! s:toggle_checkbox()
     call cursor(cur_line, cur_column)
 endfunction
 
+function! s:ReplacePunctuation()
+    '<,'>s/,/，/g
+    '<,'>s/\./。/g
+endfunction
+
+
 nnoremap <silent><buffer> <cr> :call <sid>toggle_checkbox()<cr>
 vnoremap <silent><buffer> <cr> :call <sid>toggle_checkbox()<cr>
+
+vnoremap <silent><buffer> <space>rp :call <sid>ReplacePunctuation()<cr>

@@ -25,6 +25,9 @@ end)
 -- nohl
 map("n", "<leader>h", "<cmd>nohl<cr>", { desc = "clear highlight" })
 
+-- force quit all
+map("n", "<leader>qf", "<cmd>qa!<cr>", { desc = "force quit all" })
+
 -- telescope buffer
 map("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Switch buffer by telescope" })
 
