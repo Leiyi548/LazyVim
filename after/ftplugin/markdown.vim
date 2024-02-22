@@ -43,6 +43,4 @@ endfunction
 
 
 nnoremap <silent><buffer> <cr> :call <sid>toggle_checkbox()<cr>
-vnoremap <silent><buffer> <cr> :call <sid>toggle_checkbox()<cr>
-
 vnoremap <silent><buffer> <space>rp :call <sid>ReplacePunctuation()<cr>
