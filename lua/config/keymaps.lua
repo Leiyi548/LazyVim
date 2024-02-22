@@ -41,6 +41,10 @@ end)
 map("n", "<C-d>", "<C-d>zz", { desc = "scroll down half page and center page" })
 map("n", "<C-u>", "<C-u>zz", { desc = "scroll up half page and center page" })
 
+-- move screen left right
+map("n", "<C-b>", "5zh", { desc = "scroll left half page and center page" })
+map("n", "<C-f>", "5zl", { desc = "scroll right half page and center page" })
+
 -- Move Lines
 map("n", "<M-Down>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 map("n", "<M-Up>", "<cmd>m .-2<cr>==", { desc = "Move up" })
