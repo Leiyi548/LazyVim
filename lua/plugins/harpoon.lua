@@ -31,8 +31,8 @@ return {
       { "<leader>3", function() require("harpoon"):list():select(3) end, desc = "harpoon to file 3" },
       { "<leader>4", function() require("harpoon"):list():select(4) end, desc = "harpoon to file 4" },
       { "<leader>5", function() require("harpoon"):list():select(5) end, desc = "harpoon to file 5"},
-      { "<S-H>", function() require("harpoon"):list():prev() end, desc = "harpoon to prev file" },
-      { "<S-L>", function() require("harpoon"):list():next() end, desc = "harpoon to next file" },
+      -- { "<S-H>", function() require("harpoon"):list():prev() end, desc = "harpoon to prev file" },
+      -- { "<S-L>", function() require("harpoon"):list():next() end, desc = "harpoon to next file" },
       { "<C-PageUp>", function() require("harpoon"):list():prev() end, desc = "harpoon to file 5" },
       { "<C-PageDown>", function() require("harpoon"):list():next() end, desc = "harpoon to file 5" },
       -- stylua: ignore end
