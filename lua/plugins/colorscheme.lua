@@ -1,5 +1,6 @@
 return {
-  { "rose-pine/neovim", name = "rose-pine", lazy = true },
+  { "rose-pine/neovim", name = "rose-pine" },
+  { "sainnhe/everforest" },
   {
     "LazyVim/LazyVim",
     opts = {
