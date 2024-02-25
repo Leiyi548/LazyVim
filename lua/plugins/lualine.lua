@@ -48,6 +48,14 @@ return {
         lualine_x = {
           {
             function()
+              return ""
+            end,
+            color = function()
+              return { fg = require("cmp_im").getChineseSymbolStatus() and "green" or "red" }
+            end,
+          },
+          {
+            function()
               return ""
             end,
             color = function()

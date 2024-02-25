@@ -37,7 +37,10 @@ map({"n","x","o"}, "S", function() require("flash-zhh").jump() end, { desc = "Fl
 
 -- toggle cmp_im
 map({ "n" }, "<leader><Space>", function()
-  vim.notify(string.format("IM is %s", require("cmp_im").toggle() and "enabled" or "disabled"))
+  vim.notify(string.format("虎码%s", require("cmp_im").toggle() and "启动" or "退出"))
+end)
+map({ "n" }, "<leader>,", function()
+  require("cmp_im").toggle_chinese_symbol()
 end)
 
 -- better ctrl-d ctrl-u
