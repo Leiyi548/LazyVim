@@ -40,8 +40,8 @@ folke 写的 flash 只能跳转英文,而我这个能够跳转中文,当然现�
 - [x] Telescope 添加 scroll left right 命令
 - [x] nvim 添加向左向右移动 zh zl
 - [x] 选中一块区域可以用把英文的标点符号改成中文的
-- [ ] flash-zhh 更新下词库
-- [ ] cmp_im_zhh 添加重复上次输入 `''`
+- [x] 更新 flash-zhh 的词库
+- [ ] cmp_im_zhh 添加重复上次输入 `''` （好像因为 cmp 的原因无法实现）
 - [ ] Telescope ignore folder 添加 .obsidian 文件夹
 - [ ] obsidian.nvim 使用
   - [ ] 让 obsidian.nvim 的库在 windows 在正确的位置

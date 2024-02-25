@@ -10,10 +10,10 @@ return {
       -- Id is automatically added at the beginning, and name at the end
       -- See :help oil-columns
       columns = {
+        "ctime",
         "icon",
         -- "permissions",
         -- "size",
-        -- "mtime",
       },
       -- Buffer-local options to use for oil buffers
       buf_options = {

@@ -20,7 +20,6 @@ return {
             " ",
             { filename, gui = modified and "bold,italic" or "bold" },
             " ",
-            guibg = "#44406e",
             { " " .. vim.api.nvim_win_get_number(props.win), group = "DevIconWindows" },
           }
           return buffer
