@@ -42,6 +42,7 @@ folke 写的 flash 只能跳转英文,而我这个能够跳转中文,当然现�
 - [x] 选中一块区域可以用把英文的标点符号改成中文的
 - [x] 更新 flash-zhh 的词库
 - [x] 写一个 markdown 格式化插件，类似 obsidianlint （不需要，obsidianlint 可以 lintfolder 直接就格式化，我把这个放到 obsidian 去格式化就行了，自己写 nvim 插件还麻烦啊！（可以用 obsidian-advancedurl 来实现）
+- [x] 搞清楚如何设置 notify 的 level
 - [ ] cmp_im_zhh 添加重复上次输入 `''` （好像因为 cmp 的原因无法实现）
 - [ ] Telescope ignore folder 添加 .obsidian 文件夹
 - [ ] obsidian.nvim 使用

@@ -7,8 +7,21 @@ local map = vim.keymap.set
 map({ "i", "c" }, "<C-BS>", "<C-w>", { desc = "Delete word" })
 
 -- Home End
--- map({ "n", "x", "o" }, "<S-h>", "0", { desc = "Home" })
--- map({ "n", "x", "o" }, "<S-l>", "$", { desc = "End" })
+map({ "n", "x", "o" }, "<S-h>", "0", { desc = "Home" })
+map({ "n", "x", "o" }, "<S-l>", "$", { desc = "End" })
+
+-- all content
+map("n", "vae", "ggVG")
+map("n", "yae", "ggVGy")
+map("n", "dae", "ggVGd")
+map("n", "cae", "ggVGc")
+
+-- reselect pasted text
+map("n", "gy", "`[v`]", { desc = "reselect pasted text" })
+
+-- add empty lines before and after cursor line
+map("n", "gO", "<cmd>call append(line('.') - 1, repeat([''], v:count1))<cr>", { desc = "Put empty line above" })
+map("n", "go", "<cmd>call append(line('.'),     repeat([''], v:count1))<cr>", { desc = "Put empty line below" })
 
 -- fast save
 map({ "n", "i", "v" }, "<C-s>", function()
@@ -27,9 +40,6 @@ map("n", "<leader>h", "<cmd>nohl<cr>", { desc = "clear highlight" })
 
 -- force quit all
 map("n", "<leader>qf", "<cmd>qa!<cr>", { desc = "force quit all" })
-
--- telescope buffer
-map("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Switch buffer by telescope" })
 
 -- flash-zhh.nvim 有些时候不会加载这个插件
 -- stylua: ignore
@@ -74,4 +84,9 @@ map("n", "<leader>9", "9<C-w>w", { desc = "Jump to window9" })
 -- stylua: ignore start
 map("n", "<leader>oo", function() require("utils.advancedurl").obsidianOpenCurrentFile() end, { desc = "Obsidian open current file" })
 map("n", "<leader>of", function() require("utils.advancedurl").markdownlintCurrentFile()() end, { desc = "Obsidian format current file" })
+
+-- telescope
+map("n", "<leader>ff", function() require("utils.fancy_telescope").findFile() end, { desc = "Find file" })
+map("n", "<leader>bb", function() require("utils.fancy_telescope").findBuffer() end, { desc = "Switch buffer by telescope" })
+map("n", "<leader>sf", function() require("utils.fancy_telescope").grep_string_by_filetype() end, { desc = "Grep string by filetype" })
 -- stylua: ignore end
