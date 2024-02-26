@@ -69,3 +69,9 @@ map("n", "<leader>6", "6<C-w>w", { desc = "Jump to window6" })
 map("n", "<leader>7", "7<C-w>w", { desc = "Jump to window7" })
 map("n", "<leader>8", "8<C-w>w", { desc = "Jump to window8" })
 map("n", "<leader>9", "9<C-w>w", { desc = "Jump to window9" })
+
+-- obsidian
+-- stylua: ignore start
+map("n", "<leader>oo", function() require("utils.advancedurl").obsidianOpenCurrentFile() end, { desc = "Obsidian open current file" })
+map("n", "<leader>of", function() require("utils.advancedurl").markdownlintCurrentFile()() end, { desc = "Obsidian format current file" })
+-- stylua: ignore end
