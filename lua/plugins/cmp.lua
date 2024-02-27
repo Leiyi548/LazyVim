@@ -15,8 +15,8 @@ return {
     local defaults = require("cmp.config.default")()
     return {
       enabled = function()
-        local buftype = vim.api.nvim_buf_get_option(0, "buftype")
-        if buftype == "TelescopePrompt" then
+        local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+        if filetype == "TelescopePrompt" then
           return require("cmp_im").getStatus()
         end
         return true
