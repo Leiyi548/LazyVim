@@ -6,6 +6,9 @@ local map = vim.keymap.set
 -- 让 ctrl+delete 等于 ctrl+w 去删除光标前面的单词
 map({ "i", "c" }, "<C-BS>", "<C-w>", { desc = "Delete word" })
 
+-- 防止 visual mode p 的内容会替换剪贴板内容
+map("x", "p", '"_dP')
+
 -- Home End
 map({ "n", "x", "o" }, "<S-h>", "0", { desc = "Home" })
 map({ "n", "x", "o" }, "<S-l>", "$", { desc = "End" })
