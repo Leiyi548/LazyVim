@@ -48,11 +48,13 @@ return {
     { "<leader><space>", false },
     -- find
     { "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
-    { "<leader>fc", Util.telescope.config_files(), desc = "Find Config File" },
+    -- { "<leader>fc", Util.telescope.config_files(), desc = "Find Config File" },
+    { "<leader>fc", false },
+    { "<leader>fr", false },
     -- { "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
     { "<leader>ff", false },
     { "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
-    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+    -- { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
     { "<leader>fR", Util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
     -- git
     { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },

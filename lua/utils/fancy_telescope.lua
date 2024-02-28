@@ -2,6 +2,7 @@ local M = {}
 
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
+local themes = require("telescope.themes")
 
 local file_ignore_patterns = {
   -- disable directory
@@ -25,7 +26,24 @@ function M.findFile()
     prompt_title = "findFile",
     file_ignore_patterns = file_ignore_patterns,
   }
-  builtin.find_files(opts)
+  builtin.find_files(themes.get_dropdown(opts))
+end
+
+function M.findConfigFile()
+  local opts = {
+    prompt_title = "Lazyvim config file",
+    cwd = vim.fn.stdpath("config"),
+    previewer = false,
+  }
+  builtin.find_files(themes.get_dropdown(opts))
+end
+
+function M.findRecentFile()
+  local opts = {
+    prompt_title = "Recent file",
+    previewer = false,
+  }
+  builtin.oldfiles(themes.get_dropdown(opts))
 end
 
 function M.findBuffer()
@@ -43,7 +61,7 @@ function M.findBuffer()
       },
     },
   }
-  builtin.buffers(opts)
+  builtin.buffers(themes.get_dropdown(opts))
 end
 
 function M.grep_string_by_filetype()
@@ -51,7 +69,7 @@ function M.grep_string_by_filetype()
     prompt_title = "Search for a specific file type",
     type_filter = vim.fn.input("FireType: "),
   }
-  builtin.live_grep(opts)
+  builtin.live_grep(themes.get_dropdown(opts))
 end
 
 return M

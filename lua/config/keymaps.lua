@@ -16,9 +16,6 @@ map("n", "yae", "ggVGy")
 map("n", "dae", "ggVGd")
 map("n", "cae", "ggVGc")
 
--- reselect pasted text
-map("n", "gy", "`[v`]", { desc = "reselect pasted text" })
-
 -- add empty lines before and after cursor line
 map("n", "gO", "<cmd>call append(line('.') - 1, repeat([''], v:count1))<cr>", { desc = "Put empty line above" })
 map("n", "go", "<cmd>call append(line('.'),     repeat([''], v:count1))<cr>", { desc = "Put empty line below" })
@@ -87,6 +84,8 @@ map("n", "<leader>of", function() require("utils.advanceduri").markdownlintCurre
 
 -- telescope
 map("n", "<leader>ff", function() require("utils.fancy_telescope").findFile() end, { desc = "Find file" })
+map("n", "<leader>fr", function() require("utils.fancy_telescope").findRecentFile() end, { desc = "Find Recent File" })
+map("n", "<leader>fc", function() require("utils.fancy_telescope").findConfigFile() end, { desc = "Find Config File" })
 map("n", "<leader>bb", function() require("utils.fancy_telescope").findBuffer() end, { desc = "Switch buffer by telescope" })
 map("n", "<leader>sf", function() require("utils.fancy_telescope").grep_string_by_filetype() end, { desc = "Grep string by filetype" })
 -- stylua: ignore end
