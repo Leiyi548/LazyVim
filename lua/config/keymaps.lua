@@ -82,8 +82,8 @@ map("n", "<leader>9", "9<C-w>w", { desc = "Jump to window9" })
 
 -- obsidian
 -- stylua: ignore start
-map("n", "<leader>oo", function() require("utils.advancedurl").obsidianOpenCurrentFile() end, { desc = "Obsidian open current file" })
-map("n", "<leader>of", function() require("utils.advancedurl").markdownlintCurrentFile()() end, { desc = "Obsidian format current file" })
+map("n", "<leader>oo", function() require("utils.advanceduri").obsidianOpenCurrentFile() end, { desc = "Obsidian open current file" })
+map("n", "<leader>of", function() require("utils.advanceduri").markdownlintCurrentFile()() end, { desc = "Obsidian format current file" })
 
 -- telescope
 map("n", "<leader>ff", function() require("utils.fancy_telescope").findFile() end, { desc = "Find file" })
