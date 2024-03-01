@@ -32,9 +32,9 @@ folke 写的 flash 只能跳转英文，而我这个能够跳转中文，当然�
 - [x] 把 LazyVim 的 markdown 配置给删除掉
 - [x] 文件保存时，会有 notify 消息提示，什么时候保存（参考我以前的配置）
 - [x] 更改 gitsign 配置
-- [x] 更改 cmp_im_zhh。nvim 的 README
+- [x] 更改 cmp_im_zhh.nvim 的 README
 - [x] 更改 Telescope 配置（参考我以前的配置）
-- [x] flash-zhh。nvim 添加 remote 操作
+- [x] flash-zhh.nvim 添加 remote 操作
 - [x] 使用 telescope-project 插件
   - [x] dashboard。nvim 添加 Telescope Project 按钮P
 - [x] Telescope 添加 scroll left right 命令
@@ -44,7 +44,8 @@ folke 写的 flash 只能跳转英文，而我这个能够跳转中文，当然�
 - [x] 写一个 markdown 格式化插件，类似 obsidianlint （不需要，obsidianlint 可以 lintfolder 直接就格式化，我把这个放到 obsidian 去格式化就行了，自己写 nvim 插件还麻烦啊！（可以用 obsidian-advancedurl 来实现）
 - [x] 搞清楚如何设置 notify 的 level
 - [x] 改变 telescope 主题（让分屏的时候用起来也很爽）
+- [x] Telescope ignore folder 添加 .obsidian 文件夹
+- [x] cmp_im_zhh 添加回车不上屏中文，就是原来的英文。
 - [ ] cmp_im_zhh 添加重复上次输入 `''` （好像因为 cmp 的原因无法实现）
-- [ ] Telescope ignore folder 添加 。obsidian 文件夹
 - [ ] obsidian。nvim 使用
   - [ ] 让 obsidian。nvim 的库在 windows 在正确的位置

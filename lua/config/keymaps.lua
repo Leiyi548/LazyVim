@@ -13,6 +13,15 @@ map("x", "p", '"_dP')
 map({ "n", "x", "o" }, "<S-h>", "0", { desc = "Home" })
 map({ "n", "x", "o" }, "<S-l>", "$", { desc = "End" })
 
+-- better command less keystroke
+map("n", ";", ":")
+
+-- remove lazyvim Default keymap
+map("n", "<C-j>", "")
+map("n", "<C-k>", "")
+map("n", "<C-h>", "")
+map("n", "<C-l>", "")
+
 -- all content
 map("n", "vae", "ggVG")
 map("n", "yae", "ggVGy")
@@ -42,12 +51,19 @@ map("n", "<leader>h", "<cmd>nohl<cr>", { desc = "clear highlight" })
 map("n", "<leader>qf", "<cmd>qa!<cr>", { desc = "force quit all" })
 
 -- flash-zhh.nvim 有些时候不会加载这个插件
--- stylua: ignore
+-- stylua: ignore start
 map({"n","x","o"}, "S", function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code)" })
+-- stylua: ignore end
 
 -- toggle cmp_im
 map({ "n" }, "<leader><Space>", function()
   vim.notify(string.format("虎码%s", require("cmp_im").toggle() and "启动" or "退出"))
+end)
+map({ "n", "x", "i", "c" }, "<C-.>", function()
+  vim.notify(string.format("虎码%s", require("cmp_im").toggle() and "启动" or "退出"))
+end)
+map({ "n", "x", "i" }, "<C-,>", function()
+  require("cmp_im").toggle_chinese_symbol()
 end)
 map({ "n" }, "<leader>,", function()
   require("cmp_im").toggle_chinese_symbol()
@@ -69,6 +85,7 @@ map("i", "<M-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 map("v", "<M-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<M-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
+-- window
 -- window jump
 map("n", "<leader>1", "1<C-w>w", { desc = "Jump to window1" })
 map("n", "<leader>2", "2<C-w>w", { desc = "Jump to window2" })
@@ -79,7 +96,11 @@ map("n", "<leader>6", "6<C-w>w", { desc = "Jump to window6" })
 map("n", "<leader>7", "7<C-w>w", { desc = "Jump to window7" })
 map("n", "<leader>8", "8<C-w>w", { desc = "Jump to window8" })
 map("n", "<leader>9", "9<C-w>w", { desc = "Jump to window9" })
+map("n", "<leader>9", "9<C-w>w", { desc = "Jump to window9" })
 
+-- change window origin keymap
+map("n", "<C-w>x", "<C-w>s", { desc = "横向分屏当前 buffer" })
+map("n", "<C-w>s", "<C-w>x", { desc = "跟下一个窗口进行交换" })
 -- obsidian
 -- stylua: ignore start
 map("n", "<leader>oo", function() require("utils.advanceduri").obsidianOpenCurrentFile() end, { desc = "Obsidian open current file" })
