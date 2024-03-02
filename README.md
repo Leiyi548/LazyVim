@@ -48,4 +48,4 @@ folke 写的 flash 只能跳转英文，而我这个能够跳转中文，当然�
 - [x] cmp_im_zhh 添加回车不上屏中文，就是原来的英文。
 - [ ] cmp_im_zhh 添加重复上次输入 `''` （好像因为 cmp 的原因无法实现）
 - [ ] obsidian。nvim 使用
-  - [ ] 让 obsidian。nvim 的库在 windows 在正确的位置
+  - [ ] 让 obsidian.nvim 的库在 windows 在正确的位置
