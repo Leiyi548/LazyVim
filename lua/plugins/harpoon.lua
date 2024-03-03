@@ -6,7 +6,12 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local harpoon = require("harpoon")
-      harpoon:setup()
+      harpoon:setup({
+        settings = {
+          save_on_toggle = false,
+          sync_on_ui_close = false,
+        },
+      })
       harpoon:extend({
         UI_CREATE = function(cx)
           vim.keymap.set("n", "<C-v>", function()

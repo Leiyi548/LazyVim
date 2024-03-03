@@ -3,6 +3,7 @@ return {
     "b0o/incline.nvim",
     -- Optional: Lazy load Incline
     event = "VeryLazy",
+    enabled = false,
     config = function()
       -- more information please see https://github.com/b0o/incline.nvim/discussions/32
       local helpers = require("incline.helpers")
