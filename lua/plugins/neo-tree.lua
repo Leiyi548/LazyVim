@@ -4,6 +4,7 @@ return {
   branch = "v3.x",
   enabled = true,
   cmd = "Neotree",
+  init = function() end,
   keys = {
     {
       "<leader>fe",
@@ -19,8 +20,7 @@ return {
       end,
       desc = "Explorer NeoTree (cwd)",
     },
-    { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (root dir)", remap = true },
-    { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
+    { "<leader>e", false },
     {
       "<leader>ge",
       function()
@@ -43,6 +43,7 @@ return {
     -- sources = { "filesystem", "buffers", "git_status", "document_symbols" },
     sources = { "filesystem", "buffers", "git_status" },
     open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
+    enable_normal_mode_for_inputs = false, -- Enable normal mode for input dialogs.
     filesystem = {
       bind_to_cwd = false,
       follow_current_file = { enabled = true },
@@ -73,6 +74,9 @@ return {
     },
     window = {
       mappings = {
+        ["s"] = "none",
+        ["S"] = "none",
+        ["/"] = "none",
         ["<space>"] = "none",
         ["Y"] = function(state)
           local node = state.tree:get_node()
