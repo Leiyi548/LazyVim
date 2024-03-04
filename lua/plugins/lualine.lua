@@ -1,3 +1,6 @@
+local window_number = function()
+  return vim.api.nvim_win_get_number(0)
+end
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
@@ -24,11 +27,11 @@ return {
     return {
       options = {
         theme = "auto",
-        globalstatus = true,
+        globalstatus = false,
         disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
       },
       sections = {
-        lualine_a = { "mode" },
+        lualine_a = { window_number },
         lualine_b = { "branch" },
 
         lualine_c = {
@@ -67,13 +70,17 @@ return {
               function() return require("noice").api.status.command.get() end,
               cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
               color = Util.ui.fg("Statement"),
-            },
             -- stylua: ignore
-            {
-              function() return require("noice").api.status.mode.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              color = Util.ui.fg("Constant"),
             },
+          {
+            function()
+              return require("noice").api.status.mode.get()
+            end,
+            cond = function()
+              return package.loaded["noice"] and require("noice").api.status.mode.has()
+            end,
+            color = Util.ui.fg("Constant"),
+          },
             -- stylua: ignore
             {
               function() return "  " .. require("dap").status() end,
@@ -104,12 +111,16 @@ return {
             end,
           },
         },
-        lualine_y = {
-          { "progress", separator = " ", padding = { left = 1, right = 0 } },
-        },
-        lualine_z = {
-          { "location", padding = { left = 0, right = 1 } },
-        },
+        lualine_y = {},
+        lualine_z = {},
+      },
+      inactive_sections = {
+        lualine_a = { window_number },
+        lualine_b = { { "filename", path = 1, symbols = { modified = "[*]" } } },
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
       },
       extensions = { "neo-tree", "lazy" },
     }
