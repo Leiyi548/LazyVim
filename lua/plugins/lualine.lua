@@ -1,6 +1,9 @@
-local window_number = function()
-  return vim.api.nvim_win_get_number(0)
-end
+local window_number = {
+  function()
+    return vim.api.nvim_win_get_number(0)
+  end,
+  always_visible = true,
+}
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
