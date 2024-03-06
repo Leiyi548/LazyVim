@@ -16,7 +16,8 @@ if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   -- neovide font setting
   -- https://www.nerdfonts.com/font-downloads
-  vim.o.guifont = "FiraCode Nerd Font,LXGW WenKai GB Screen R,TumanPUA:h18" -- text below applies for VimScript
+  vim.o.guifont = "FiraCode Nerd Font,LXGW WenKai GB Screen R,TumanPUA:h20" -- text below applies for VimScript
   vim.g.neovide_cursor_animate_in_insert_mode = false
+  vim.g.neovide_cursor_animation_length = 0
   -- vim.g.neovide_transparency = 0.95
 end
