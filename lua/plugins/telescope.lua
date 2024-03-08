@@ -43,7 +43,9 @@ return {
   },
   keys = {
     { "<leader>,", false },
-    { "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
+    -- 这个太伤我的小拇指了
+    { "<leader>/", false },
+    -- { "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
     { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
     { "<leader><space>", false },
     -- find
