@@ -17,10 +17,12 @@ map({ "n", "x", "o" }, "<S-h>", "0", { desc = "Home" })
 map({ "n", "x", "o" }, "<S-l>", "$", { desc = "End" })
 
 -- remove lazyvim Default keymap
-map("n", "<C-j>", "")
-map("n", "<C-k>", "")
-map("n", "<C-h>", "")
-map("n", "<C-l>", "")
+vim.keymap.del("n", "<C-j>")
+vim.keymap.del("n", "<C-k>")
+vim.keymap.del("n", "<C-h>")
+vim.keymap.del("n", "<C-l>")
+vim.keymap.del({ "n", "x" }, "j")
+vim.keymap.del({ "n", "x" }, "k")
 
 -- all content
 map("n", "vae", "ggVG")
@@ -33,7 +35,7 @@ map("n", "gO", "<cmd>call append(line('.') - 1, repeat([''], v:count1))<cr>", { 
 map("n", "go", "<cmd>call append(line('.'),     repeat([''], v:count1))<cr>", { desc = "Put empty line below" })
 
 -- fast save
-map({ "n", "i", "v" }, "<C-s>", function()
+map({ "n", "i", "x" }, "<C-s>", function()
   vim.cmd("w")
   local time = os.date("%T")
   vim.api.nvim_command('echohl @class |  echom "saved ' .. time .. '"')
