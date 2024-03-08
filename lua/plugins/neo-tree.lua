@@ -2,7 +2,7 @@ local Util = require("lazyvim.util")
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
-  enabled = true,
+  enabled = false,
   cmd = "Neotree",
   init = function() end,
   keys = {

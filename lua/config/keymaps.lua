@@ -118,4 +118,4 @@ map("n", "<leader>sf", function() require("utils.fancy_telescope").grep_string_b
 map("n", "<leader>dm", "<cmd>delmarks!<cr>", { desc = "Delete Bookmarks" })
 
 -- neo-tree
-map("n", "<leader>e", "<cmd>Neotree position=current<cr>", { desc = "Neotree current buffer" })
+-- map("n", "<leader>e", "<cmd>Neotree position=current<cr>", { desc = "Neotree current buffer" })

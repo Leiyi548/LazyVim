@@ -3,7 +3,7 @@
 -- Add any additional options here
 
 vim.opt.cursorcolumn = false
-vim.opt.background = "dark"
+vim.opt.background = "light"
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false

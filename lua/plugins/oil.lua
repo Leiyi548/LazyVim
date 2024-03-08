@@ -168,7 +168,7 @@ return {
         desc = "Open parent directory(Oil)",
       },
       {
-        ";o",
+        "<leader>e",
         function()
           require("oil").open_float()
         end,
