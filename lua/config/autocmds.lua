@@ -42,6 +42,18 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("fugitive_keymap"),
+  pattern = {
+    "fugitive",
+  },
+  callback = function()
+    vim.cmd([[
+      map <silent> <buffer> <TAB> =
+    ]])
+  end,
+})
+
 local function is_zhh_entry(entry)
   return vim.tbl_get(entry, "source", "name") == "IM"
 end
