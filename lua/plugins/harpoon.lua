@@ -30,10 +30,10 @@ return {
     end,
     keys = {
       -- stylua: ignore start
-      { "<C-e>", function() local harpoon = require("harpoon") harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "harpoon quick menu"},
+      { "<End>", function() local harpoon = require("harpoon") harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "harpoon quick menu"},
       { "<leader>a", function() require("harpoon"):list():append() end, desc = "harpoon add file" },
-      { "<C-h>", function() require("harpoon"):list():select(1) end, desc = "harpoon to file 1" },
-      { "<C-n>", function() require("harpoon"):list():select(2) end, desc = "harpoon to file 2"},
+      { "<BS>", function() require("harpoon"):list():select(1) end, desc = "harpoon to file 1" },
+      { "<Down>", function() require("harpoon"):list():select(2) end, desc = "harpoon to file 2"},
       { "<C-t>", function() require("harpoon"):list():select(3) end, desc = "harpoon to file 3" },
       { "<C-g>", function() require("harpoon"):list():select(4) end, desc = "harpoon to file 4" },
       { "<C-m>", function() require("harpoon"):list():select(5) end, desc = "harpoon to file 5"},
