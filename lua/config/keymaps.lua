@@ -30,6 +30,9 @@ map("n", "yae", "ggVGy")
 map("n", "dae", "ggVGd")
 map("n", "cae", "ggVGc")
 
+-- :x
+map("n", "<leader>qx", "<cmd>x<cr>", { desc = "save close window" })
+
 -- add empty lines before and after cursor line
 map("n", "gO", "<cmd>call append(line('.') - 1, repeat([''], v:count1))<cr>", { desc = "Put empty line above" })
 map("n", "go", "<cmd>call append(line('.'),     repeat([''], v:count1))<cr>", { desc = "Put empty line below" })
