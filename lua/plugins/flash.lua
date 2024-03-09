@@ -4,7 +4,7 @@ return {
     -- stylua: ignore start
     { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
     { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-    { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    { "r", mode = {"o"}, function() require("flash").remote() end, desc = "Remote Flash" },
     { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     -- stylua: ignore end
@@ -77,7 +77,7 @@ return {
     },
     label = {
       -- allow uppercase labels
-      uppercase = true,
+      uppercase = false,
       -- add any labels with the correct case here, that you want to exclude
       exclude = "",
       -- add a label for the first match in the current window.
@@ -190,7 +190,7 @@ return {
         -- by removing them from the list.
         -- If you rather use another key, you can map them
         -- to something else, e.g., { [";"] = "L", [","] = H }
-        keys = { "f", "F", "t", "T", ";", "," },
+        keys = { "f", "F", "t", "T" },
         ---@alias Flash.CharActions table<string, "next" | "prev" | "right" | "left">
         -- The direction for `prev` and `next` is determined by the motion.
         -- `left` and `right` are always left and right.
