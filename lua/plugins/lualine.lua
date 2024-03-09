@@ -38,7 +38,7 @@ return {
         lualine_b = { "branch" },
 
         lualine_c = {
-          Util.lualine.root_dir(),
+          -- Util.lualine.root_dir(),
           {
             "diagnostics",
             symbols = {
