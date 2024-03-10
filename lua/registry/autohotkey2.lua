@@ -17,10 +17,8 @@ return Pkg.new({
     std.unzip("lsp.zip", ".")
 
     ctx.receipt:with_primary_source({
-      type = "custom",
       repo = "fcying/tools",
       file = file,
-      release = ver,
     })
   end,
 })
