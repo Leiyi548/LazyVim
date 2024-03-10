@@ -13,6 +13,9 @@ vim.opt.conceallevel = 0 -- Hide * markup for bold and italic
 -- vim.opt.showbreak = '↳'
 vim.opt.showbreak = ""
 vim.opt.listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←,eol:↲"
+vim.opt.title = true
+vim.opt.titlelen = 0 -- do not shorten title
+vim.opt.titlestring = 'nvim %{expand("%:p")}'
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
@@ -21,5 +24,6 @@ if vim.g.neovide then
   vim.o.guifont = "FiraCode Nerd Font,LXGW WenKai GB Screen R,TumanPUA:h20" -- text below applies for VimScript
   vim.g.neovide_cursor_animate_in_insert_mode = false
   vim.g.neovide_cursor_animation_length = 0
+  vim.g.neovide_default_title = "zhh"
   -- vim.g.neovide_transparency = 0.95
 end
