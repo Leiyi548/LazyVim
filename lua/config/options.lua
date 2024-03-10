@@ -4,6 +4,8 @@
 
 vim.opt.cursorcolumn = false
 vim.opt.background = "light"
+vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
