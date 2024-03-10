@@ -23,6 +23,14 @@ vim.keymap.del("n", "<C-h>")
 vim.keymap.del("n", "<C-l>")
 vim.keymap.del({ "n", "x" }, "j")
 vim.keymap.del({ "n", "x" }, "k")
+vim.keymap.del("n", "<leader>l")
+
+-- lazy
+map("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
+-- lsp
+map("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "LspInfo" })
+map("n", "<leader>ll", "<cmd>LspLog<cr>", { desc = "LspLog" })
 
 -- all content
 map("n", "vae", "ggVG")
