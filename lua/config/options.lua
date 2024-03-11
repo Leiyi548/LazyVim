@@ -24,6 +24,5 @@ if vim.g.neovide then
   vim.o.guifont = "FiraCode Nerd Font,LXGW WenKai GB Screen R,TumanPUA:h20" -- text below applies for VimScript
   vim.g.neovide_cursor_animate_in_insert_mode = false
   vim.g.neovide_cursor_animation_length = 0
-  vim.g.neovide_default_title = "zhh"
   -- vim.g.neovide_transparency = 0.95
 end
