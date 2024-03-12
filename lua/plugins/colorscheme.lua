@@ -56,6 +56,9 @@ return {
         ---NB: This is only significant for dark backgrounds as the light palettes
         ---have the same colour for both values in the switch.
         float_style = "bright",
+        on_highlights = function(hl, palette)
+          hl.FlashLabel = { fg = palette.green, bg = palette.grey0, sp = palette.green, bold = true, italic = false }
+        end,
       })
     end,
   },
