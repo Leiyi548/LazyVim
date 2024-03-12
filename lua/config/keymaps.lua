@@ -31,6 +31,7 @@ map("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Lazy" })
 -- lsp
 map("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "LspInfo" })
 map("n", "<leader>ll", "<cmd>LspLog<cr>", { desc = "LspLog" })
+map("n", "<leader>ls", "<cmd>LspStop<cr>", { desc = "LspStop" })
 
 -- dark light background keymap
 map("n", "<leader>uD", "<cmd>set background=dark<cr>", { desc = "set dark background" })
