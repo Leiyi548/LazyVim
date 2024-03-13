@@ -57,7 +57,7 @@ return {
         ---have the same colour for both values in the switch.
         float_style = "bright",
         on_highlights = function(hl, palette)
-          hl.FlashLabel = { fg = palette.green, bg = palette.grey0, sp = palette.green, bold = true, italic = false }
+          hl.FlashLabel = { fg = palette.purple, sp = palette.green, bold = true, italic = false }
         end,
       })
     end,
