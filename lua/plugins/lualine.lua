@@ -1,6 +1,7 @@
+local number_array = { "󰼏", "󰼐", "󰼑", "󰼒", "󰼓", "󰼔", "󰼕", "󰼖", "󰼗" }
 local window_number = {
   function()
-    return vim.api.nvim_win_get_number(0)
+    return number_array[vim.api.nvim_win_get_number(0)]
   end,
   always_visible = true,
 }
