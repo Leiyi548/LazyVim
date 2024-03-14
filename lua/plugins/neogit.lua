@@ -1,5 +1,6 @@
 return {
   "NeogitOrg/neogit",
+  enabled = false,
   opts = {
     -- Hides the hints at the top of the status buffer
     disable_hint = false,
