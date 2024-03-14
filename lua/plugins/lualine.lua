@@ -98,7 +98,7 @@ return {
             end,
           },
         },
-        lualine_y = {},
+        lualine_y = { "progress" },
         lualine_z = {},
       },
       inactive_sections = {
@@ -106,7 +106,7 @@ return {
         lualine_b = { { "filename", path = 1, symbols = { modified = "[*]" } } },
         lualine_c = {},
         lualine_x = {},
-        lualine_y = {},
+        lualine_y = { "progress" },
         lualine_z = {},
       },
       extensions = { "neo-tree", "lazy" },
