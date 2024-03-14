@@ -74,7 +74,7 @@ return {
           },
           {
             function()
-              return "󰄛"
+              return "虎"
             end,
             color = function()
               return { fg = require("cmp_im").getStatus() and "green" or "red" }
