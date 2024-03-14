@@ -46,6 +46,9 @@ map("n", "cae", "ggVGc")
 -- :x
 map("n", "<leader>qx", "<cmd>x<cr>", { desc = "save close window" })
 
+-- terminal
+map("n", "<leader>t<Tab>", "<cmd>tabnew|terminal<cr>", { desc = "open termianl in new tab" })
+
 -- delete a char
 map({ "i", "c" }, "<C-d>", "<Del>", { desc = "delete a char" })
 
