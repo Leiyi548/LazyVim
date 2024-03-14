@@ -2,8 +2,13 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+local _time = os.date("*t")
+if _time.hour >= 16 or _time.hour < 8 then
+  vim.opt.background = "dark"
+else
+  vim.opt.background = "light"
+end
 vim.opt.cursorcolumn = false
-vim.opt.background = "light"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.backup = false
