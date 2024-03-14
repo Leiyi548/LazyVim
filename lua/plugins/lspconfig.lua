@@ -68,6 +68,7 @@ return {
             },
           },
         },
+        volar = {},
       },
     },
     config = function(_, opts)
