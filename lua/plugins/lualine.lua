@@ -7,6 +7,9 @@ local window_number = {
 }
 return {
   "nvim-lualine/lualine.nvim",
+  dependencies = {
+    "Leiyi548/harpoon-lualine",
+  },
   event = "VeryLazy",
   init = function()
     vim.g.lualine_laststatus = vim.o.laststatus
@@ -19,7 +22,6 @@ return {
     end
   end,
   opts = function()
-    local Util = require("lazyvim.util")
     -- PERF: we don't need this lualine require madness 🤷
     local lualine_require = require("lualine_require")
     lualine_require.require = require
@@ -39,7 +41,6 @@ return {
         lualine_b = { "branch" },
 
         lualine_c = {
-          -- Util.lualine.root_dir(),
           {
             "diagnostics",
             symbols = {
@@ -61,7 +62,6 @@ return {
               newfile = "[new]", -- Text to show for new created file before first writting
             },
           },
-          -- { Util.lualine.pretty_path() },
         },
         lualine_x = {
           {
@@ -100,7 +100,16 @@ return {
           },
         },
         lualine_y = { "progress" },
-        lualine_z = {},
+        lualine_z = {
+          "another_item",
+          {
+            "harpoon2",
+            icon = "Harpoon:",
+            indicators = { "1", "2", "3", "4" },
+            -- active_indicators = { "壹", "贰", "叁", "肆" },
+            active_indicators = { "[1]", "[2]", "[3]", "[4]" },
+          },
+        },
       },
       inactive_sections = {
         lualine_a = { window_number },
