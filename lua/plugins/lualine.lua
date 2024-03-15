@@ -104,7 +104,7 @@ return {
           "another_item",
           {
             "harpoon2",
-            icon = "Harpoon:",
+            icon = "",
             indicators = { "1", "2", "3", "4" },
             -- active_indicators = { "壹", "贰", "叁", "肆" },
             active_indicators = { "[1]", "[2]", "[3]", "[4]" },
