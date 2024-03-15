@@ -3,8 +3,8 @@ return {
   cmd = { "G", "Git", "Gedit", "Gread", "Gwrite", "Gdiffsplit", "Gvdiffsplit" },
   keys = {
     -- stylua: ignore start
-    { "<leader>gf", "<cmd>G<cr>", desc = "open fugitive window", },
-    { "<leader>gp", "<cmd>Git push<cr>", desc = "Git push", },
+    { "<leader>gt", "<cmd>G<cr>", desc = "[G]it s[t]atus(fugitive)", },
+    { "<leader>gp", "<cmd>Git push<cr>", desc = "[G]it [p]ush", },
     -- stylua: ignore end
   },
 }
