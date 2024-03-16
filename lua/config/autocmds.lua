@@ -47,9 +47,10 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "fugitive",
   },
-  callback = function()
-    vim.cmd([[
-      map <silent> <buffer> <TAB> =
-    ]])
+  callback = function(ctx)
+    vim.keymap.set("n", "<Tab>", "=", { remap = true, buffer = ctx.buf })
+    vim.keymap.set("n", "i", function()
+      require("utils.fugitive").get_status_cursor_info()
+    end, { remap = true, buffer = ctx.buf })
   end,
 })
