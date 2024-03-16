@@ -65,7 +65,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "everforest",
+      -- available theme: everforest tokyonight
+      colorscheme = "tokyonight",
     },
   },
 }
