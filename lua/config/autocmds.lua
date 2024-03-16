@@ -49,8 +49,11 @@ vim.api.nvim_create_autocmd("FileType", {
   },
   callback = function(ctx)
     vim.keymap.set("n", "<Tab>", "=", { remap = true, buffer = ctx.buf })
-    vim.keymap.set("n", "i", function()
-      require("utils.fugitive").get_status_cursor_info()
-    end, { remap = true, buffer = ctx.buf })
+    vim.keymap.set("n", "dd", function()
+      local info = require("utils.fugitive").get_status_cursor_info()
+      if info then
+        vim.cmd(string.format("DiffviewOpen --selected-file=%s", vim.fn.fnameescape(info.paths[1])))
+      end
+    end, { remap = true, buffer = ctx.buf, desc = "open diffview in new tab" })
   end,
 })
