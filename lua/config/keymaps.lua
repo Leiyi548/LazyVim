@@ -76,7 +76,7 @@ map("n", "<leader>qf", "<cmd>qa!<cr>", { desc = "force quit all" })
 
 -- flash-zhh.nvim 有些时候不会加载这个插件
 -- stylua: ignore start
-map({"n","x","o"}, ";s", function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code)" })
+map({"n","x","o"}, "S", function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code)" })
 -- stylua: ignore end
 
 -- toggle cmp_im
