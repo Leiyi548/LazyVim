@@ -1,6 +1,7 @@
 return {
   "nvim-tree/nvim-tree.lua",
   cmd = "NvimTreeToggle",
+  enabled = false,
   opts = {
     sort = {
       sorter = "case_sensitive",

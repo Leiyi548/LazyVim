@@ -2,7 +2,7 @@ local Util = require("lazyvim.util")
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
-  enabled = false,
+  enabled = true,
   cmd = "Neotree",
   init = function() end,
   keys = {
@@ -41,7 +41,7 @@ return {
   end,
   opts = {
     -- sources = { "filesystem", "buffers", "git_status", "document_symbols" },
-    sources = { "filesystem", "buffers", "git_status" },
+    sources = { "filesystem" },
     open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
     enable_normal_mode_for_inputs = false, -- Enable normal mode for input dialogs.
     filesystem = {
