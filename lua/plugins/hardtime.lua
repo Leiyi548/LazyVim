@@ -5,6 +5,8 @@ return {
   opts = {
     disable_mouse = false,
     disabled_filetypes = {
+      "neo-tree",
+      "noice",
       "NeogitLogView",
       "NeogitStatus",
       "help",
