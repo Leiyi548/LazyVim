@@ -8,6 +8,7 @@ if _time.hour >= 16 or _time.hour < 8 then
 else
   vim.opt.background = "light"
 end
+vim.opt.background = "dark"
 vim.opt.cursorcolumn = false
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -20,7 +21,7 @@ vim.opt.showbreak = ""
 vim.opt.listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←,eol:↲"
 vim.opt.title = true
 vim.opt.titlelen = 0 -- do not shorten title
-vim.opt.titlestring = 'nvim %{expand("%:p")}'
+vim.opt.titlestring = 'neovide %{expand("%:p")}'
 if vim.loop.os_uname().sysname == "Windows_NT" then
   vim.opt.shell = "powershell.exe"
 end
