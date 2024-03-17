@@ -1,4 +1,5 @@
 local Util = require("lazyvim.util")
+local action_state = require("telescope.actions.state")
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
@@ -156,19 +157,93 @@ return {
             ["<C-f>"] = actions.preview_scrolling_right,
           },
         },
-        pickers = {
-          buffers = {
-            sort_lastused = true,
-            sort_mru = true,
-            ignore_current_buffer = false,
-            theme = "dropdown",
-            previewer = false,
-            mappings = {
-              i = { ["<C-d>"] = actions.delete_buffer },
-              n = {
-                ["d"] = actions.delete_buffer,
-                ["<C-d>"] = actions.delete_buffer,
-              },
+      },
+      pickers = {
+        buffers = {
+          sort_lastused = true,
+          sort_mru = true,
+          ignore_current_buffer = false,
+          theme = "dropdown",
+          previewer = false,
+          mappings = {
+            i = { ["<C-d>"] = actions.delete_buffer },
+            n = {
+              ["d"] = actions.delete_buffer,
+              ["<C-d>"] = actions.delete_buffer,
+            },
+          },
+        },
+        current_buffer_fuzzy_find = {
+          skip_empty_lines = true,
+          layout_strategy = "vertical",
+          previewer = true,
+          mappings = {
+            i = {
+              ["<C-y>"] = function(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                actions.close(prompt_bufnr)
+                vim.fn.setreg("*", selection.text)
+                vim.notify("复制成功：" .. selection.text)
+              end,
+            },
+          },
+        },
+        git_commits = {
+          layout_strategy = "vertical",
+          mappings = {
+            i = {
+              -- checkout commit
+              -- ["<C-o>"] = actions.git_checkout,
+              -- 复制 commit 信息
+              ["<cr>"] = function(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                if selection == nil then
+                  vim.notify("没有可以选择的 commit")
+                else
+                  actions.close(prompt_bufnr)
+                  -- yanks the additions from the currently selected undo state into the default register
+                  vim.fn.setreg(require("utils").get_default_register(), selection.msg)
+                  vim.notify("复制成功 commit message: " .. selection.msg)
+                end
+              end,
+              -- 复制 commit hash 值
+              ["<C-y>"] = function(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                if selection == nil then
+                  vim.notify("没有可以选择的 commit")
+                else
+                  actions.close(prompt_bufnr)
+                  -- yanks the additions from the currently selected undo state into the default register
+                  vim.fn.setreg("*", selection.value)
+                  vim.notify("复制成功 commit hash: " .. selection.value)
+                end
+              end,
+            },
+            n = {
+              -- checkout commit
+              ["<C-o>"] = actions.git_checkout,
+              -- 复制 commit 信息
+              ["<cr>"] = function(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                if selection == nil then
+                  vim.notify("没有可以选择的 commit")
+                else
+                  actions.close(prompt_bufnr)
+                  vim.fn.setreg("*", selection.msg)
+                  vim.notify("复制成功 commit message: " .. selection.msg)
+                end
+              end,
+              -- 复制 commit hash 值
+              ["<C-v>"] = function(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                if selection == nil then
+                  vim.notify("没有可以选择的 commit")
+                else
+                  actions.close(prompt_bufnr)
+                  vim.fn.setreg("*", selection.value)
+                  vim.notify("复制成功 commit hash: " .. selection.value)
+                end
+              end,
             },
           },
         },
