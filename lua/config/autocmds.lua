@@ -55,5 +55,11 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.cmd(string.format("DiffviewOpen --selected-file=%s", vim.fn.fnameescape(info.paths[1])))
       end
     end, { remap = true, buffer = ctx.buf, desc = "open diffview in new tab" })
+    vim.keymap.set("n", "P", function()
+      local choice = vim.fn.confirm(("是否要 Push 到远程"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
+      if choice == 1 then
+        vim.cmd("Git push")
+      end
+    end, { remap = true, buffer = ctx.buf, desc = "Git Push" })
   end,
 })
