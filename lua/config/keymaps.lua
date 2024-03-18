@@ -100,6 +100,8 @@ map("n", "<C-u>", "<C-u>zz", { desc = "scroll up half page and center page" })
 -- move screen left right
 map("n", "<C-b>", "5zh", { desc = "scroll left half page and center page" })
 map("n", "<C-f>", "5zl", { desc = "scroll right half page and center page" })
+map("n", "<Left>", "5zh", { desc = "scroll left half page and center page" })
+map("n", "<Right>", "5zl", { desc = "scroll right half page and center page" })
 
 -- Move Lines
 map("n", "<M-Down>", "<cmd>m .+1<cr>==", { desc = "Move down" })
@@ -144,3 +146,6 @@ map("n", "<leader>dm", "<cmd>delmarks!<cr>", { desc = "Delete Bookmarks" })
 
 -- neo-tree
 -- map("n", "<leader>e", "<cmd>Neotree position=current<cr>", { desc = "Neotree current buffer" })
+
+-- translate
+map("x", "<leader>tw", "<cmd>Translate<cr>", { desc = "Translate the word under the cursor" })
