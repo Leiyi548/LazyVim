@@ -8,7 +8,7 @@ local window_number = {
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
-    "Leiyi548/harpoon-lualine",
+    "letieu/harpoon-lualine",
   },
   event = "VeryLazy",
   init = function()
@@ -108,6 +108,7 @@ return {
             indicators = { "1", "2", "3", "4" },
             -- active_indicators = { "壹", "贰", "叁", "肆" },
             active_indicators = { "[1]", "[2]", "[3]", "[4]" },
+            separator = "",
           },
         },
       },
