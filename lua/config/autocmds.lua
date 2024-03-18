@@ -67,3 +67,15 @@ vim.api.nvim_create_autocmd("FileType", {
     end, { remap = true, buffer = ctx.buf, desc = "Git Push" })
   end,
 })
+
+-- close tab
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("close_tab_with_q"),
+  pattern = {
+    "DiffviewFiles",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>tabclose<cr>", { buffer = event.buf, silent = true })
+  end,
+})
