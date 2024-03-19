@@ -58,6 +58,7 @@ return {
         float_style = "bright",
         on_highlights = function(hl, palette)
           hl.FlashLabel = { fg = palette.purple, sp = palette.green, bold = true, italic = false }
+          hl.CurrentWord = { fg = palette.none, bg = palette.bg_dim }
         end,
       })
     end,
@@ -66,7 +67,7 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- available theme: everforest tokyonight
-      colorscheme = "tokyonight",
+      colorscheme = "everforest",
     },
   },
 }

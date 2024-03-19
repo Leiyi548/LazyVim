@@ -8,7 +8,6 @@ if _time.hour >= 16 or _time.hour < 8 then
 else
   vim.opt.background = "light"
 end
-vim.opt.background = "dark"
 vim.opt.cursorcolumn = false
 vim.opt.number = true
 vim.opt.relativenumber = true

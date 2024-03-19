@@ -139,6 +139,7 @@ map("n", "<leader>fc", function() require("utils.fancy_telescope").findConfigFil
 map("n", "<leader>bb", function() require("utils.fancy_telescope").findBuffer() end, { desc = "Switch buffer by telescope" })
 map("n", "<leader>sf", function() require("utils.fancy_telescope").grep_string_by_filetype() end, { desc = "Grep string by filetype" })
 map("n", "<leader>gf", "<cmd>Telescope git_files<cr>", { desc = "Telescope git_files" })
+map("n", "<leader>fh", "<cmd>Telescope highlights<cr>", { desc = "Telescope git_files" })
 -- stylua: ignore end
 
 -- bookmark
