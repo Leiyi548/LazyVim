@@ -43,7 +43,6 @@ return {
     -- sources = { "filesystem", "buffers", "git_status", "document_symbols" },
     sources = { "filesystem" },
     open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
-    enable_normal_mode_for_inputs = false, -- Enable normal mode for input dialogs.
     filesystem = {
       bind_to_cwd = false,
       follow_current_file = { enabled = true },
@@ -116,7 +115,16 @@ return {
     end
 
     local events = require("neo-tree.events")
-    opts.event_handlers = opts.event_handlers or {}
+    opts.event_handlers = {
+      {
+        event = "neo_tree_popup_input_ready",
+        ---@param input NuiInput
+        handler = function(input)
+          -- enter input popup with normal mode by default.
+          vim.cmd("stopinsert")
+        end,
+      },
+    }
     vim.list_extend(opts.event_handlers, {
       { event = events.FILE_MOVED, handler = on_move },
       { event = events.FILE_RENAMED, handler = on_move },
