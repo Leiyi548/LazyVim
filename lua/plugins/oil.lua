@@ -97,6 +97,7 @@ return {
           -- sort order can be "asc" or "desc"
           -- see :help oil-columns to see which columns are sortable
           { "type", "asc" },
+          { "ctime", "desc" },
           { "name", "asc" },
         },
       },
