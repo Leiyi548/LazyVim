@@ -16,7 +16,7 @@ return {
       end,
     },
     {
-      "ahmedkhalf/project.nvim",
+      "Leiyi548/project.nvim",
       opts = {
         -- Manual mode doesn't automatically change your root directory, so you have
         -- the option to manually do so using `:ProjectRoot` command.

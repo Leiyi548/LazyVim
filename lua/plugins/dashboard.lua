@@ -24,7 +24,7 @@ return {
         header = vim.split(logo, "\n"),
         -- stylua: ignore
         center = {
-          { action = 'lua require("utils.fancy_telescope").findFile()',                                     desc = " Find file",       icon = " ", key = "f" },
+          { action = 'lua require("utils.fancy_telescope").findFile()',          desc = " Find file",       icon = " ", key = "f" },
           { action = "ene | startinsert",                                        desc = " New file",        icon = " ", key = "n" },
           { action = 'lua require("utils.fancy_telescope").findRecentFile()',    desc = " Recent files",    icon = " ", key = "r" },
           { action = "Telescope live_grep",                                      desc = " Find text",       icon = " ", key = "g" },
@@ -33,6 +33,7 @@ return {
           { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
           { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
           { action = "Telescope projects",                                       desc = " Project",         icon = "󰒲 ", key = "p" },
+          { action = "Telescope oil",                                            desc = " Oil",             icon = "󰒲 ", key = "o" },
           { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
         },
         footer = function()
