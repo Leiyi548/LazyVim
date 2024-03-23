@@ -39,6 +39,7 @@ return {
       end,
       keys = {
         { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
+        { "<leader>fo", "<Cmd>Telescope oil<CR>", desc = "oil Projects" },
       },
     },
   },
@@ -127,6 +128,11 @@ return {
       defaults = {
         prompt_prefix = " ",
         selection_caret = " ",
+        sorting_strategy = "ascending", -- 按照升序排序
+        layout_config = {
+          horizontal = { prompt_position = "top" },
+          vertical = { prompt_position = "top", mirror = true },
+        },
         -- open files in the first window that is an actual file.
         -- use the current window if no other window is available.
         get_selection_window = function()
@@ -149,7 +155,9 @@ return {
             ["<C-Down>"] = actions.cycle_history_next,
             ["<C-Up>"] = actions.cycle_history_prev,
             ["<C-b>"] = actions.preview_scrolling_left,
+            ["<Left>"] = actions.preview_scrolling_left,
             ["<C-f>"] = actions.preview_scrolling_right,
+            ["<Right>"] = actions.preview_scrolling_right,
           },
           n = {
             ["q"] = actions.close,
