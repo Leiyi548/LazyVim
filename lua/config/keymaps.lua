@@ -21,8 +21,8 @@ vim.keymap.del("n", "<C-j>")
 vim.keymap.del("n", "<C-k>")
 vim.keymap.del("n", "<C-h>")
 vim.keymap.del("n", "<C-l>")
-vim.keymap.del({ "n", "x" }, "j")
-vim.keymap.del({ "n", "x" }, "k")
+-- vim.keymap.del({ "n", "x" }, "j")
+-- vim.keymap.del({ "n", "x" }, "k")
 vim.keymap.del("n", "<leader>l")
 
 -- lazy
