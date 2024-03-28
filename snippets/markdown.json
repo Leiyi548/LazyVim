@@ -1,0 +1,9 @@
+{
+  "datetime chinse style": {
+    "prefix": "hello",
+    "body": [
+      "# ${0}"
+    ],
+    "description": "Add header level 1"
+  }
+}
