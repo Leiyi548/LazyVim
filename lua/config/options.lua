@@ -8,6 +8,8 @@ if _time.hour >= 16 or _time.hour < 8 then
 else
   vim.opt.background = "light"
 end
+vim.opt.background = "dark"
+vim.opt.background = "dark"
 vim.opt.cursorcolumn = false
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -29,8 +31,8 @@ if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   -- neovide font setting
   -- https://www.nerdfonts.com/font-downloads
-  vim.o.guifont = "FiraCode Nerd Font,LXGW WenKai GB Screen R,TumanPUA:h20" -- text below applies for VimScript
-  vim.g.neovide_cursor_animate_in_insert_mode = false
-  vim.g.neovide_cursor_animation_length = 0
+  vim.o.guifont = "FiraCode Nerd Font,霞鹜文楷 GB 屏幕阅读版,TumanPUA:h18" -- text below applies for VimScript
+  -- vim.g.neovide_cursor_animate_in_insert_mode = false
+  -- vim.g.neovide_cursor_animation_length = 0
   -- vim.g.neovide_transparency = 0.95
 end
