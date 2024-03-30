@@ -2,6 +2,43 @@
 
 这是我的配置，用起来一般般啊，你也能用很mbbb。
 
+## 安装之前需要的东西
+
+### windows
+
+**tressiter 需要**
+
+```powershell
+scoop install gcc
+scoop install zig
+```
+
+**lazygit** 虽然我不用，但不能没有吧。
+
+```powershell
+scoop install lazygit
+```
+
+**nodejs**
+
+```powershell
+scoop install nodejs nvm
+```
+
+**python**
+
+nvim 中很多都需要 python3 这个环境。
+
+```powershell
+scoop install python
+```
+
+**ripgrep** `Telescope live_grep` 需要
+
+```powershell
+scoop install ripgrep
+```
+
 ## cmp-im-zhh.nvim
 
 可以用这个来输入中文，码表的虎码输入法的，用起来非常的爽，配合 neovide 的丝滑的光标，让人感觉那叫一个爽!
