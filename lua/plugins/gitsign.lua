@@ -11,6 +11,14 @@ return {
       untracked = { text = "▎" },
     },
     numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
+    preview_config = {
+      -- Options passed to nvim_open_win
+      border = "solid",
+      style = "minimal",
+      relative = "cursor",
+      row = 0,
+      col = 1,
+    },
     current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
     on_attach = function(buffer)
       local gs = package.loaded.gitsigns
@@ -28,8 +36,8 @@ return {
         map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
         map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
         map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
-        map( "n", "<leader>ghp", gs.preview_hunk, "Preview the hunk at the cursor position in a floating window.")
-        map("n", "<leader>ghP", gs.preview_hunk_inline, "Preview Hunk Inline")
+        map( "n", "<leader>gp", gs.preview_hunk, "Preview the hunk at the cursor position in a floating window.")
+        map("n", "<leader>gP", gs.preview_hunk_inline, "Preview Hunk Inline")
         map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
         map("n", "<leader>ghd", gs.diffthis, "Diff This")
         map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
