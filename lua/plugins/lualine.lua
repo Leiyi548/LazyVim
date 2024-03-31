@@ -33,11 +33,12 @@ return {
     return {
       options = {
         theme = "auto",
-        globalstatus = false,
+        globalstatus = true,
         disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
       },
       sections = {
-        lualine_a = { window_number },
+        -- lualine_a = { window_number },
+        lualine_a = { "mode" },
         lualine_b = { "branch" },
 
         lualine_c = {
