@@ -74,11 +74,6 @@ map("n", "<leader>h", "<cmd>nohl<cr>", { desc = "clear highlight" })
 -- force quit all
 map("n", "<leader>qf", "<cmd>qa!<cr>", { desc = "force quit all" })
 
--- flash-zhh.nvim 有些时候不会加载这个插件
--- stylua: ignore start
-map({"n","x","o"}, "S", function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code)" })
--- stylua: ignore end
-
 -- toggle cmp_im
 map({ "n" }, "<leader><Space>", function()
   vim.notify(string.format("虎码%s", require("cmp_im").toggle() and "启动" or "退出"))
@@ -138,6 +133,10 @@ map("n", "<leader>bb", function() require("utils.fancy_telescope").findBuffer() 
 map("n", "<leader>sf", function() require("utils.fancy_telescope").grep_string_by_filetype() end, { desc = "Grep string by filetype" })
 map("n", "<leader>gf", "<cmd>Telescope git_files<cr>", { desc = "Telescope git_files" })
 map("n", "<leader>fh", "<cmd>Telescope highlights<cr>", { desc = "Telescope git_files" })
+
+-- flash-zhh
+map({"n","x"}, "s",function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code)" })
+map("o", "r",function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code) Remote" })
 -- stylua: ignore end
 
 -- bookmark
