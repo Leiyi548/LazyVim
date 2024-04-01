@@ -150,3 +150,6 @@ map("n", "<leader>dm", "<cmd>delmarks!<cr>", { desc = "Delete Bookmarks" })
 
 -- translate
 map("x", "<leader>tw", "<cmd>Translate<cr>", { desc = "Translate the word under the cursor" })
+
+-- message
+map("n", "<leader>snm", "<cmd>message<cr>", { desc = "message" })
