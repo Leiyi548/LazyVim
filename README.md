@@ -39,6 +39,12 @@ scoop install python
 scoop install ripgrep
 ```
 
+## screenkey 的平替 [keyviz](https://github.com/mulaRahul/keyviz)
+
+```powershell
+scoop install keyviz
+```
+
 ## cmp-im-zhh.nvim
 
 可以用这个来输入中文，码表的虎码输入法的，用起来非常的爽，配合 neovide 的丝滑的光标，让人感觉那叫一个爽!
