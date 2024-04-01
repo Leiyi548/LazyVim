@@ -17,7 +17,7 @@ vim.opt.title = true
 vim.opt.titlelen = 0 -- do not shorten title
 vim.opt.titlestring = 'neovide %{expand("%:p")}'
 if vim.loop.os_uname().sysname == "Windows_NT" then
-  vim.opt.shell = "powershell.exe"
+  vim.opt.shell = "powershell.exe pwsh"
 end
 
 if vim.g.neovide then
