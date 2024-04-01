@@ -6,6 +6,9 @@ local map = vim.keymap.set
 -- 让 ctrl+delete 等于 ctrl+w 去删除光标前面的单词
 map({ "i", "c" }, "<C-BS>", "<C-w>", { desc = "Delete word" })
 
+-- better paste
+map({ "i" }, "<C-v>", "<C-r>*", { desc = "Paste" })
+
 -- center current line
 map({ "i" }, "<C-l>", "<C-o>zz", { desc = "center current line" })
 
