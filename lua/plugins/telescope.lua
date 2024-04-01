@@ -108,21 +108,23 @@ return {
     local actions = require("telescope.actions")
 
     local open_with_trouble = function(...)
-      return require("trouble.providers.telescope").open_with_trouble(...)
+      return require("trouble.sources.telescope").open(...)
     end
+
     local open_selected_with_trouble = function(...)
       return require("trouble.providers.telescope").open_selected_with_trouble(...)
     end
+
     local find_files_no_ignore = function()
-      local action_state = require("telescope.actions.state")
       local line = action_state.get_current_line()
       Util.telescope("find_files", { no_ignore = true, default_text = line })()
     end
+
     local find_files_with_hidden = function()
-      local action_state = require("telescope.actions.state")
       local line = action_state.get_current_line()
       Util.telescope("find_files", { hidden = true, default_text = line })()
     end
+
     local function flash(prompt_bufnr)
       require("flash").jump({
         pattern = "^",
