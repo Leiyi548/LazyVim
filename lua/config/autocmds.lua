@@ -49,6 +49,15 @@ vim.api.nvim_create_autocmd("FileType", {
   },
   callback = function(ctx)
     vim.keymap.set("n", "<Tab>", "=", { remap = true, buffer = ctx.buf })
+    vim.keymap.set("n", "t", "-", { remap = true, buffer = ctx.buf })
+    vim.keymap.set("n", "a", function()
+      local sid = require("utils.fugitive").get_sid()
+      local func = "Do"
+      vim.fn[string.format("<SNR>%d_%s", sid, func)]("Stage", 0)
+    end, { remap = true, buffer = ctx.buf })
+    vim.keymap.set("x", "a", "s", { remap = true, buffer = ctx.buf })
+    -- stylua: ignore
+    vim.keymap.set("n", "s", function() require("flash-zhh").jump() end, { buffer = ctx.buf })
     vim.keymap.set("n", "dd", function()
       local info = require("utils.fugitive").get_status_cursor_info()
       if info then
