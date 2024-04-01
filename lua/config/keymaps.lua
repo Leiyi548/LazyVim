@@ -129,7 +129,8 @@ map("n", "<leader>oo", function() require("utils.advanceduri").obsidianOpenCurre
 map("n", "<leader>of", function() require("utils.advanceduri").markdownlintCurrentFile()() end, { desc = "Obsidian format current file" })
 
 -- telescope
-map("n", "<leader>ff", function() require("utils.fancy_telescope").findFile() end, { desc = "Find file" })
+-- map("n", "<leader>ff", function() require("utils.fancy_telescope").findFile() end, { desc = "Find file" })
+map("n", "<leader>ff", function() require("utils.fancy_telescope").findProjectFile() end, { desc = "Find file" })
 map("n", "<leader>fr", function() require("utils.fancy_telescope").findRecentFile() end, { desc = "Find Recent File" })
 map("n", "<leader>fc", function() require("utils.fancy_telescope").findConfigFile() end, { desc = "Find Config File" })
 map("n", "<leader>bb", function() require("utils.fancy_telescope").findBuffer() end, { desc = "Switch buffer by telescope" })

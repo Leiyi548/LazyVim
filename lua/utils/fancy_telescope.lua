@@ -29,6 +29,28 @@ function M.findFile()
   builtin.find_files(themes.get_dropdown(opts))
 end
 
+function M.findProjectFile()
+  local opts = {
+    prompt_title = "findProjectFile",
+    cwd = vim.fn.stdpath("config"),
+  }
+  if
+    vim.uv.fs_stat(vim.uv.cwd() .. "/.git")
+    and not vim.uv.fs_stat(vim.uv.cwd() .. "/.ignore")
+    and not vim.uv.fs_stat(vim.uv.cwd() .. "/.rgignore")
+  then
+    if opts.show_untracked == nil then
+      opts.show_untracked = true
+    end
+    builtin = "git_files"
+    opts.prompt_title = vim.uv.cwd() .. "(git_files)"
+  else
+    builtin = "find_files"
+    opts.prompt_title = vim.uv.cwd() .. "(find_files)"
+  end
+  require("telescope.builtin")[builtin](themes.get_dropdown(opts))
+end
+
 function M.findConfigFile()
   local opts = {
     prompt_title = "Lazyvim config file",
