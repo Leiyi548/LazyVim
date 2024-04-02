@@ -235,8 +235,8 @@ return {
                 else
                   actions.close(prompt_bufnr)
                   -- yanks the additions from the currently selected undo state into the default register
-                  vim.fn.setreg(require("utils").get_default_register(), selection.msg)
-                  vim.notify("复制成功 commit message: " .. selection.msg)
+                  vim.fn.setreg("*", selection.msg)
+                  vim.notify(selection.msg)
                 end
               end,
               -- 复制 commit hash 值
@@ -248,7 +248,7 @@ return {
                   actions.close(prompt_bufnr)
                   -- yanks the additions from the currently selected undo state into the default register
                   vim.fn.setreg("*", selection.value)
-                  vim.notify("复制成功 commit hash: " .. selection.value)
+                  vim.notify(selection.value)
                 end
               end,
             },
@@ -263,7 +263,7 @@ return {
                 else
                   actions.close(prompt_bufnr)
                   vim.fn.setreg("*", selection.msg)
-                  vim.notify("复制成功 commit message: " .. selection.msg)
+                  vim.notify(selection.msg)
                 end
               end,
               -- 复制 commit hash 值
@@ -274,7 +274,7 @@ return {
                 else
                   actions.close(prompt_bufnr)
                   vim.fn.setreg("*", selection.value)
-                  vim.notify("复制成功 commit hash: " .. selection.value)
+                  vim.notify(selection.value)
                 end
               end,
             },
