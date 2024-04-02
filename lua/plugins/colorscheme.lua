@@ -2,12 +2,18 @@ local function get_colorscheme()
   local _time = os.date("*t")
   local colorscheme = ""
   if _time.hour >= 16 or _time.hour < 8 then
+    vim.opt.background = "dark"
     colorscheme = "everforest"
   else
-    colorscheme = "github_light_colorblind"
+    vim.opt.background = "light"
+    -- github_light_colorblind
+    -- tokyonight-day
+    -- catppuccin
+    colorscheme = "catppuccin-latte"
   end
   return colorscheme
 end
+
 return {
   { "rose-pine/neovim", lazy = true, name = "rose-pine" },
   { "sainnhe/everforest", lazy = true, enabled = false },
