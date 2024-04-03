@@ -3,6 +3,10 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
+-- force delete buffer
+-- stylua: ignore
+map("n", "<leader>bx", function() require("mini.bufremove").delete(0, true) end, { desc = "Delete word" })
+
 -- 让 ctrl+delete 等于 ctrl+w 去删除光标前面的单词
 map({ "i", "c" }, "<C-BS>", "<C-w>", { desc = "Delete word" })
 
@@ -135,6 +139,7 @@ map("n", "<leader>fr", function() require("utils.fancy_telescope").findRecentFil
 map("n", "<leader>fc", function() require("utils.fancy_telescope").findConfigFile() end, { desc = "Find Config File" })
 map("n", "<leader>bb", function() require("utils.fancy_telescope").findBuffer() end, { desc = "Switch buffer by telescope" })
 map("n", "<leader>sf", function() require("utils.fancy_telescope").grep_string_by_filetype() end, { desc = "Grep string by filetype" })
+map("n", "<leader>sg", function() require("utils.fancy_telescope").live_grep_project() end, { desc = "Grep string project" })
 map("n", "<leader>gf", "<cmd>Telescope git_files<cr>", { desc = "Telescope git_files" })
 map("n", "<leader>fh", "<cmd>Telescope highlights<cr>", { desc = "Telescope git_files" })
 
