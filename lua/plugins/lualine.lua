@@ -5,6 +5,14 @@ local window_number = {
   end,
   always_visible = true,
 }
+
+local project = {
+  function()
+    return "󱉭 " .. vim.fs.basename(vim.uv.cwd())
+  end,
+  color = { fg = "#DBBC7F" },
+  always_visible = true,
+}
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
@@ -43,6 +51,7 @@ return {
         lualine_b = { "branch" },
 
         lualine_c = {
+          project,
           {
             "diagnostics",
             symbols = {
