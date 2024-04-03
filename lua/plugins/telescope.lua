@@ -168,7 +168,7 @@ return {
         end,
         mappings = {
           i = {
-            ["<c-t>"] = open_with_trouble,
+            ["<c-q>"] = open_with_trouble,
             ["<c-s>"] = flash,
             ["<a-t>"] = open_selected_with_trouble,
             ["<a-i>"] = find_files_no_ignore,
@@ -181,6 +181,7 @@ return {
             ["<Right>"] = actions.preview_scrolling_right,
           },
           n = {
+            ["<c-q>"] = open_with_trouble,
             ["q"] = actions.close,
             ["<c-s>"] = flash,
             ["<C-b>"] = actions.preview_scrolling_left,
