@@ -20,7 +20,7 @@ return {
       opts = {
         -- Manual mode doesn't automatically change your root directory, so you have
         -- the option to manually do so using `:ProjectRoot` command.
-        manual_mode = false,
+        manual_mode = true,
         -- Methods of detecting the root directory. **"lsp"** uses the native neovim
         -- lsp, while **"pattern"** uses vim-rooter like glob pattern matching. Here
         -- order matters: if one is not detected, the other is used as fallback. You
@@ -38,8 +38,10 @@ return {
         end)
       end,
       keys = {
+        { "<leader>pr", "<Cmd>ProjectRoot<CR>", desc = "ProjectRoot" },
         { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
         { "<leader>fo", "<Cmd>Telescope oil<CR>", desc = "oil Projects" },
+        { "<leader>fg", "<Cmd>Telescope projectGrep<CR>", desc = "projectGrep" },
       },
     },
   },
@@ -47,6 +49,8 @@ return {
     { "<leader>,", false },
     -- 这个太伤我的小拇指了
     { "<leader>/", false },
+    -- 冲突
+    { "<leader>fg", false },
     -- { "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
     { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
     { "<leader><space>", false },
@@ -191,6 +195,9 @@ return {
       },
       pickers = {
         live_grep = {
+          theme = "dropdown",
+        },
+        git_status = {
           theme = "dropdown",
         },
         buffers = {

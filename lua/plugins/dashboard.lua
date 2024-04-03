@@ -27,7 +27,7 @@ return {
           { action = "ene | startinsert",                                        desc = " New file",        icon = " ", key = "n" },
           { action = 'lua require("utils.fancy_telescope").findRecentFile()',    desc = " Recent files",    icon = " ", key = "r" },
           { action = "Telescope live_grep",                                      desc = " Find text",       icon = " ", key = "g" },
-          { action = 'lua require("utils.fancy_telescope").findConfigFile()',    desc = " Config",          icon = " ", key = "c" },
+          { action = 'lua require("utils.fancy_telescope").findConfigFileDashboard()',    desc = " Config",          icon = " ", key = "c" },
           { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
           { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
           { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
