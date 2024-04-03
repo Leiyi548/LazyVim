@@ -38,6 +38,7 @@ return {
         map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
         map( "n", "<leader>gp", gs.preview_hunk, "Preview the hunk at the cursor position in a floating window.")
         map("n", "<leader>gP", gs.preview_hunk_inline, "Preview Hunk Inline")
+        map("n", "<leader>gd", gs.diffthis, "Diff current buffer(use <leader>bD to close)")
         map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
         map("n", "<leader>ghd", gs.diffthis, "Diff This")
         map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
