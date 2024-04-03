@@ -98,6 +98,13 @@ function M.findBuffer()
   builtin.buffers(themes.get_dropdown(opts))
 end
 
+function M.live_grep_project()
+  local opts = {
+    prompt_title = vim.uv.cwd(),
+  }
+  builtin.live_grep(themes.get_dropdown(opts))
+end
+
 function M.grep_string_by_filetype()
   local opts = {
     prompt_title = "Search for a specific file type",
