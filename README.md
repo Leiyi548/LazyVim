@@ -64,6 +64,12 @@ folke 写的 flash 只能跳转英文，而我这个能够跳转中文，当然�
 
 这是我在 neovim 上用过最好的 git 管理插件，最主要的是你用了它，你还能用 cmp-im-zhh，就能直接打中文，想一想就觉的非常美妙。
 
+### fugitive 设置指定的分屏方向
+
+正常情况下，fugitive 都是横向分屏。
+
+那么你想要坚着分屏就用 `:vert[ical] Git`  就行了。具体可以看这个 [issue](https://github.com/tpope/vim-fugitive/issues/1237)
+
 ## TODO
 
 - [x] fugitive 窗口用 q 来进行退出
