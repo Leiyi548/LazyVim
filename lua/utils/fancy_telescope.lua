@@ -33,15 +33,13 @@ function M.findProjectFile()
   local builtin_picker = "find_files"
   local opts = {
     prompt_title = "findProjectFile",
+    show_untracked = true,
   }
   if
     vim.uv.fs_stat(vim.uv.cwd() .. "/.git")
     and not vim.uv.fs_stat(vim.uv.cwd() .. "/.ignore")
     and not vim.uv.fs_stat(vim.uv.cwd() .. "/.rgignore")
   then
-    if opts.show_untracked == nil then
-      opts.show_untracked = true
-    end
     builtin_picker = "git_files"
   else
     builtin_picker = "find_files"
