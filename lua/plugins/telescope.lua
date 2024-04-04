@@ -195,6 +195,9 @@ return {
         },
       },
       pickers = {
+        lsp_definitions = {
+          theme = "dropdown",
+        },
         live_grep = {
           theme = "dropdown",
         },
