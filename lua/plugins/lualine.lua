@@ -80,7 +80,7 @@ return {
               return ""
             end,
             color = function()
-              return { fg = require("cmp_im").getChineseSymbolStatus() and "green" or "red" }
+              return { fg = require("cmp_im").getChineseSymbolStatus() and "#A7C080" or "grey" }
             end,
           },
           {
@@ -88,7 +88,7 @@ return {
               return "虎"
             end,
             color = function()
-              return { fg = require("cmp_im").getStatus() and "green" or "red" }
+              return { fg = require("cmp_im").getStatus() and "#A7C080" or "grey" }
             end,
           },
           {
