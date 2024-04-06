@@ -203,6 +203,15 @@ return {
         },
         git_status = {
           theme = "dropdown",
+          git_icons = {
+            added = "",
+            changed = "",
+            copied = ">",
+            deleted = "",
+            renamed = "➡",
+            unmerged = "",
+            untracked = "?",
+          },
         },
         buffers = {
           sort_lastused = true,
