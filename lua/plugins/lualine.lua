@@ -1,7 +1,8 @@
 local number_array = { "󰼏", "󰼐", "󰼑", "󰼒", "󰼓", "󰼔", "󰼕", "󰼖", "󰼗" }
 local window_number = {
   function()
-    return number_array[vim.api.nvim_win_get_number(0)]
+    -- return number_array[vim.api.nvim_win_get_number(0)]
+    return vim.api.nvim_win_get_number(0)
   end,
   always_visible = true,
 }
@@ -130,6 +131,22 @@ return {
         lualine_c = {},
         lualine_x = {},
         lualine_y = { "progress" },
+        lualine_z = {},
+      },
+      winbar = {
+        lualine_a = { window_number },
+        lualine_b = {},
+        lualine_c = { { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } }, "filename" },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+      },
+      inactive_winbar = {
+        lualine_a = { window_number },
+        lualine_b = {},
+        lualine_c = { { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } }, "filename" },
+        lualine_x = {},
+        lualine_y = {},
         lualine_z = {},
       },
       extensions = { "neo-tree", "lazy" },

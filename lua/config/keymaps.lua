@@ -113,16 +113,16 @@ map("i", "<M-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 map("v", "<M-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<M-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
--- tab jump
-map("n", "<leader>1", "1gt", { desc = "Go to tab 1" })
-map("n", "<leader>2", "2gt", { desc = "Go to tab 2" })
-map("n", "<leader>3", "3gt", { desc = "Go to tab 3" })
-map("n", "<leader>4", "3gt", { desc = "Go to tab 4" })
-map("n", "<leader>5", "3gt", { desc = "Go to tab 5" })
-map("n", "<leader>6", "3gt", { desc = "Go to tab 6" })
-map("n", "<leader>7", "3gt", { desc = "Go to tab 7" })
-map("n", "<leader>8", "3gt", { desc = "Go to tab 8" })
-map("n", "<leader>9", "3gt", { desc = "Go to tab 9" })
+-- window jump
+map("n", "<leader>1", "1<C-w>w", { desc = "Go to window 1" })
+map("n", "<leader>2", "2<C-w>w", { desc = "Go to window 2" })
+map("n", "<leader>3", "3<C-w>w", { desc = "Go to window 3" })
+map("n", "<leader>4", "4<C-w>w", { desc = "Go to window 4" })
+map("n", "<leader>5", "5<C-w>w", { desc = "Go to window 5" })
+map("n", "<leader>6", "6<C-w>w", { desc = "Go to window 6" })
+map("n", "<leader>7", "7<C-w>w", { desc = "Go to window 7" })
+map("n", "<leader>8", "8<C-w>w", { desc = "Go to window 8" })
+map("n", "<leader>9", "9<C-w>w", { desc = "Go to window 9" })
 
 -- change window origin keymap
 map("n", "<C-w>x", "<C-w>s", { desc = "横向分屏当前 buffer" })
