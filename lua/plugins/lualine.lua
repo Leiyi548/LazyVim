@@ -136,7 +136,19 @@ return {
       winbar = {
         lualine_a = { window_number },
         lualine_b = {},
-        lualine_c = { { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } }, "filename" },
+        lualine_c = {
+          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+          {
+            "filename",
+            symbols = {
+              modified = "", -- Text to show when the file is modified.
+              readonly = "", -- Text to show when the file is non-modifiable or readonly.
+              unnamed = "", -- Text to show for unnamed buffers.
+              -- newfile = ' ', -- Text to show for new created file before first writting
+              newfile = "[new]", -- Text to show for new created file before first writting
+            },
+          },
+        },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {},
@@ -144,7 +156,19 @@ return {
       inactive_winbar = {
         lualine_a = { window_number },
         lualine_b = {},
-        lualine_c = { { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } }, "filename" },
+        lualine_c = {
+          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+          {
+            "filename",
+            symbols = {
+              modified = "", -- Text to show when the file is modified.
+              readonly = "", -- Text to show when the file is non-modifiable or readonly.
+              unnamed = "", -- Text to show for unnamed buffers.
+              -- newfile = ' ', -- Text to show for new created file before first writting
+              newfile = "[new]", -- Text to show for new created file before first writting
+            },
+          },
+        },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {},
