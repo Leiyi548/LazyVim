@@ -8,7 +8,7 @@ local function get_colorscheme()
     vim.opt.background = "light"
     -- github_light_colorblind
     -- tokyonight-day
-    -- catppuccin
+    -- catppuccin-latte
     colorscheme = "catppuccin-latte"
   end
   return colorscheme
