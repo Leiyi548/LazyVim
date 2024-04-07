@@ -3,6 +3,8 @@
 -- Add any additional options here
 
 vim.opt.background = "dark"
+vim.opt.foldmethod = "manual"
+vim.opt.foldtext = "foldtext()"
 vim.opt.cursorcolumn = false
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -25,6 +27,7 @@ if vim.g.neovide then
   -- neovide font setting
   -- https://www.nerdfonts.com/font-downloads
   vim.o.guifont = "FiraCode Nerd Font,霞鹜文楷 GB 屏幕阅读版,TumanPUA:h18" -- text below applies for VimScript
+  vim.g.neovide_scroll_animation_length = 0.1
   -- vim.g.neovide_cursor_animate_in_insert_mode = false
   -- vim.g.neovide_cursor_animation_length = 0
   -- vim.g.neovide_transparency = 0.95
