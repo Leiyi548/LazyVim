@@ -9,7 +9,8 @@ local function get_colorscheme()
     -- github_light_colorblind
     -- tokyonight-day
     -- catppuccin-latte
-    colorscheme = "catppuccin-latte"
+    -- everforest
+    colorscheme = "everforest"
   end
   return colorscheme
 end
