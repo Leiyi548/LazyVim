@@ -142,6 +142,7 @@ map("n", "<leader>sf", function() require("utils.fancy_telescope").grep_string_b
 map("n", "<leader>sg", function() require("utils.fancy_telescope").live_grep_project() end, { desc = "Grep string project" })
 map("n", "<leader>gf", "<cmd>Telescope git_files<cr>", { desc = "Telescope git_files" })
 map("n", "<leader>fh", "<cmd>Telescope highlights<cr>", { desc = "Telescope git_files" })
+map("n", "<leader>bf", "<cmd>Telescope buffers<cr>", { desc = "Telescope buffers" })
 
 -- flash-zhh
 map({"n","x"}, "s",function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code)" })

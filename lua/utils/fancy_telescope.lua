@@ -80,6 +80,7 @@ end
 
 function M.findBuffer()
   local opts = {
+    initial_mode = "normal",
     sort_lastused = true,
     sort_mru = true,
     ignore_current_buffer = false,
