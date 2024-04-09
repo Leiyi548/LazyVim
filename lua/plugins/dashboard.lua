@@ -7,7 +7,7 @@ return {
      ██ ██    ██ ██         ██        ██   ██ ██    ██     ██    ██    
      ██ ██    ██ ███████    ██        ██   ██ ██    ██     ██    ██    
 ██   ██ ██    ██      ██    ██        ██   ██ ██    ██     ██    ██    
- █████   ██████  ███████    ██        ██████   ██████      ██    ██    
+███████ ████████ ███████    ██        ██████   ██████      ██    ██    
     ]]
 
     logo = string.rep("\n", 8) .. logo .. "\n\n"
@@ -23,13 +23,8 @@ return {
         header = vim.split(logo, "\n"),
         -- stylua: ignore
         center = {
-          { action = 'lua require("utils.fancy_telescope").findFile()',          desc = " Find file",       icon = " ", key = "f" },
-          { action = "ene | startinsert",                                        desc = " New file",        icon = " ", key = "n" },
-          { action = 'lua require("utils.fancy_telescope").findRecentFile()',    desc = " Recent files",    icon = " ", key = "r" },
-          { action = "Telescope live_grep",                                      desc = " Find text",       icon = " ", key = "g" },
           { action = 'lua require("utils.fancy_telescope").findConfigFileDashboard()',    desc = " Config", icon = " ", key = "c" },
           { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
-          { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
           { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
           { action = "Telescope projects",                                       desc = " Project",         icon = "󱉭 ", key = "p" },
           { action = "Telescope oil",                                            desc = " Oil",             icon = "󰐅 ", key = "o" },
