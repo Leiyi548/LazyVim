@@ -74,7 +74,7 @@ vim.api.nvim_create_autocmd("FileType", {
         1
       )
       if choice == 1 then
-        vim.cmd("Git push")
+        vim.cmd("Gpush")
       end
     end, { remap = true, buffer = ctx.buf, desc = "Git Push" })
   end,
