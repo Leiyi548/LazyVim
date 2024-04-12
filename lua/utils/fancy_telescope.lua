@@ -54,20 +54,22 @@ function M.findConfigFile()
     cwd = vim.fn.stdpath("config"),
     -- cwd = "C:\\Users\\Alan\\AppData\\Local\\nvim",
     previewer = false,
+    show_untracked = true,
   }
-  builtin.find_files(themes.get_dropdown(opts))
+  builtin.git_files(themes.get_dropdown(opts))
 end
 
 function M.findConfigFileDashboard()
   local config_dir = vim.fn.stdpath("config")
   vim.api.nvim_set_current_dir(config_dir)
   local opts = {
-    prompt_title = "Lazyvim config file",
+    prompt_title = "Lazyvim config file(dashboard)",
     cwd = config_dir,
     -- cwd = "C:\\Users\\Alan\\AppData\\Local\\nvim",
     previewer = false,
+    show_untracked = true,
   }
-  builtin.find_files(themes.get_dropdown(opts))
+  builtin.git_files(themes.get_dropdown(opts))
 end
 
 function M.findRecentFile()
