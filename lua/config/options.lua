@@ -18,9 +18,9 @@ vim.opt.listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←,eol:↲"
 vim.opt.title = true
 vim.opt.titlelen = 0 -- do not shorten title
 vim.opt.titlestring = 'neovide %{expand("%:p")}'
-if vim.loop.os_uname().sysname == "Windows_NT" then
-  vim.opt.shell = "powershell.exe pwsh"
-end
+-- if vim.loop.os_uname().sysname == "Windows_NT" then
+-- vim.opt.shell = "powershell.exe pwsh"
+-- end
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here

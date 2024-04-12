@@ -47,8 +47,8 @@ map("n", "<leader>uL", "<cmd>set background=light<cr>", { desc = "set light back
 -- :x
 map("n", "<leader>qx", "<cmd>x<cr>", { desc = "save close window" })
 
--- terminal
-map("n", "<leader>t<Tab>", "<cmd>tabnew|terminal<cr>", { desc = "open termianl in new tab" })
+-- tab
+map("n", "<leader><Tab>n", "<cmd>tabnew<cr>", { desc = "new tab" })
 
 -- delete a char
 map({ "i", "c" }, "<C-d>", "<Del>", { desc = "delete a char" })
