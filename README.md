@@ -70,6 +70,27 @@ folke 写的 flash 只能跳转英文，而我这个能够跳转中文，当然�
 
 那么你想要坚着分屏就用 `:vert[ical] Git`  就行了。具体可以看这个 [issue](https://github.com/tpope/vim-fugitive/issues/1237)
 
+## lsd
+
+windows 原生的 ls 看起来很丑还没有图标，所以用 lsd 美化 `ls` 命令
+
+### 添加 alias
+
+`nvim $HOME\Documents\PowerShell\Profile.ps1` → 打开 powershell 配置
+
+```powershell
+Set-Alias ls lsd
+function ll {lsd -l}
+```
+
+### lsd
+
+![lsd](https://private-user-images.githubusercontent.com/76139422/321973088-74141fcd-b052-4c6f-b1ca-0d13a338d08f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTI5MjMyNzIsIm5iZiI6MTcxMjkyMjk3MiwicGF0aCI6Ii83NjEzOTQyMi8zMjE5NzMwODgtNzQxNDFmY2QtYjA1Mi00YzZmLWIxY2EtMGQxM2EzMzhkMDhmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA0MTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNDEyVDExNTYxMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQzMTgyYTFkNWZlYjg1NDlmMmY4MzMwYTUxN2I3ZmU0NTQ1NTUwMWVmYzZlZWQ2ODExMDU2MjkyODIwNDJkMDAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.xxA8fmYy9U_96K1GfV-cCEIOCIHrh5emgiyQGymc4dI)
+
+### lsd -l
+
+![ls-l](https://private-user-images.githubusercontent.com/76139422/321972305-4991beb1-769b-4400-8ba8-e15c0889c3d4.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTI5MjMwNzAsIm5iZiI6MTcxMjkyMjc3MCwicGF0aCI6Ii83NjEzOTQyMi8zMjE5NzIzMDUtNDk5MWJlYjEtNzY5Yi00NDAwLThiYTgtZTE1YzA4ODljM2Q0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA0MTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNDEyVDExNTI1MFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQ1MjA0MjFiZDE2ODgyMjlkMjdlODZmMDJmOTZjODUwYTczN2ExODYxZWVhM2JiZjdmYzg4MWU4NDQxN2M5MWQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.IcG87E2HPkTetBezzUm_YDeGIs5jNx9pNAat8eF-gsA)
+
 ## TODO
 
 - [x] fugitive 窗口用 q 来进行退出
