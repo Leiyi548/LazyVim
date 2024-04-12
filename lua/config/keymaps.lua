@@ -44,12 +44,6 @@ map("n", "<leader>ls", "<cmd>LspStop<cr>", { desc = "LspStop" })
 map("n", "<leader>uD", "<cmd>set background=dark<cr>", { desc = "set dark background" })
 map("n", "<leader>uL", "<cmd>set background=light<cr>", { desc = "set light background" })
 
--- all content
-map("n", "vae", "ggVG")
-map("n", "yae", "ggVGy")
-map("n", "dae", "ggVGd")
-map("n", "cae", "ggVGc")
-
 -- :x
 map("n", "<leader>qx", "<cmd>x<cr>", { desc = "save close window" })
 
