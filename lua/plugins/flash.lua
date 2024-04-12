@@ -7,7 +7,7 @@ return {
   },
   opts = {
     -- labels = "abcdefghijklmnopqrstuvwxyz",
-    labels = "asdfghjklqwertyuiopzxcvbnm",
+    labels = "sadfghjklqwertyuiopzxcvbnm",
     search = {
       -- search/jump in all windows
       multi_window = true,
