@@ -17,8 +17,10 @@ local project = {
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
-    "letieu/harpoon-lualine",
-    enabled = false,
+    "linrongbin16/lsp-progress.nvim",
+    config = function()
+      require("lsp-progress").setup()
+    end,
   },
   event = "VeryLazy",
   init = function()
@@ -78,6 +80,11 @@ return {
         lualine_x = {
           {
             function()
+              return require("lsp-progress").progress()
+            end,
+          },
+          {
+            function()
               return ""
             end,
             color = function()
@@ -113,17 +120,6 @@ return {
         },
         lualine_y = { "progress" },
         lualine_z = { "location" },
-        -- lualine_z = {
-        --   "another_item",
-        --   {
-        --     "harpoon2",
-        --     icon = "",
-        --     indicators = { "1", "2", "3", "4" },
-        --     -- active_indicators = { "壹", "贰", "叁", "肆" },
-        --     active_indicators = { "[1]", "[2]", "[3]", "[4]" },
-        --     separator = "",
-        --   },
-        -- },
       },
       inactive_sections = {
         lualine_a = { window_number },
