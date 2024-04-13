@@ -76,16 +76,10 @@ map("n", "<leader>h", "<cmd>nohl<cr>", { desc = "clear highlight" })
 map("n", "<leader>qf", "<cmd>qa!<cr>", { desc = "force quit all" })
 
 -- toggle cmp_im
-map({ "n" }, "<leader><Space>", function()
-  vim.notify(string.format("虎码%s", require("cmp_im").toggle() and "启动" or "退出"))
-end)
 map({ "n", "x", "i", "c" }, "<C-.>", function()
   vim.notify(string.format("虎码%s", require("cmp_im").toggle() and "启动" or "退出"))
 end)
 map({ "n", "x", "i" }, "<C-,>", function()
-  require("cmp_im").toggle_chinese_symbol()
-end)
-map({ "n" }, "<leader>,", function()
   require("cmp_im").toggle_chinese_symbol()
 end)
 
