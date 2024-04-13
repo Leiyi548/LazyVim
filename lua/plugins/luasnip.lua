@@ -9,5 +9,6 @@ return {
   config = function()
     require("snippets.all")
     require("snippets.gitcommit")
+    require("snippets.markdown")
   end,
 }
