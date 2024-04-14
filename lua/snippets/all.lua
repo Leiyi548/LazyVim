@@ -2,6 +2,24 @@ local ls = require("luasnip")
 local s = ls.snippet
 local t = ls.text_node
 
+local function getDateTime(index)
+  local formattedTime = os.date()
+  if index == 1 then
+    formattedTime = os.date("%Y.%m.%d")
+  elseif index == 2 then
+    formattedTime = os.date("%Y-%m-%d")
+  elseif index == 3 then
+    formattedTime = os.date("%Y-%m-%d"):gsub("%-", " 年 ", 1):gsub("%-", " 月 ")
+    return formattedTime .. " 日"
+  end
+  return formattedTime
+end
+
+ls.add_snippets("all", {
+  s("/date3", {
+    t(getDateTime(3)),
+  }),
+})
 -- enable luasnip autosnippet
 ls.config.setup({ enable_autosnippets = true })
 
