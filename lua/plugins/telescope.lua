@@ -156,7 +156,7 @@ return {
         sorting_strategy = "ascending", -- 按照升序排序
         dynamic_preview_title = true,
         layout_config = {
-          horizontal = { prompt_position = "top" },
+          horizontal = { prompt_position = "top", preview_width = 0.6 },
           vertical = { prompt_position = "top", mirror = true },
           width = { padding = 0 },
           height = { padding = 0 },
