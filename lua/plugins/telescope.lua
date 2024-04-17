@@ -223,7 +223,7 @@ return {
         },
         current_buffer_fuzzy_find = {
           skip_empty_lines = true,
-          layout_strategy = "vertical",
+          layout_strategy = "horizontal",
           previewer = true,
           mappings = {
             i = {
