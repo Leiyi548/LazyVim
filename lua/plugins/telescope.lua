@@ -157,6 +157,8 @@ return {
         layout_config = {
           horizontal = { prompt_position = "top" },
           vertical = { prompt_position = "top", mirror = true },
+          width = { padding = 0 },
+          height = { padding = 0 },
         },
         -- open files in the first window that is an actual file.
         -- use the current window if no other window is available.
@@ -180,7 +182,6 @@ return {
             ["<C-Down>"] = actions.cycle_history_next,
             ["<C-Up>"] = actions.cycle_history_prev,
             ["<C-b>"] = actions.preview_scrolling_left,
-            ["<Left>"] = actions.preview_scrolling_left,
             ["<C-f>"] = actions.preview_scrolling_right,
             ["<Right>"] = actions.preview_scrolling_right,
           },
@@ -194,14 +195,7 @@ return {
         },
       },
       pickers = {
-        lsp_definitions = {
-          theme = "dropdown",
-        },
-        live_grep = {
-          theme = "dropdown",
-        },
         git_status = {
-          theme = "dropdown",
           git_icons = {
             added = "",
             changed = "",

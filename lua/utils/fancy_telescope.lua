@@ -103,7 +103,7 @@ function M.live_grep_project()
   local opts = {
     prompt_title = vim.uv.cwd(),
   }
-  builtin.live_grep(themes.get_dropdown(opts))
+  builtin.live_grep(opts)
 end
 
 function M.grep_string_by_filetype()
@@ -111,7 +111,7 @@ function M.grep_string_by_filetype()
     prompt_title = "Search for a specific file type",
     type_filter = vim.fn.input("FireType: "),
   }
-  builtin.live_grep(themes.get_dropdown(opts))
+  builtin.live_grep(opts)
 end
 
 return M
