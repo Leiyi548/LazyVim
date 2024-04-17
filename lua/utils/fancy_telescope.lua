@@ -45,7 +45,7 @@ function M.findProjectFile()
     builtin_picker = "find_files"
   end
   opts.prompt_title = vim.uv.cwd() .. "(" .. builtin_picker .. ")"
-  require("telescope.builtin")[builtin_picker](themes.get_dropdown(opts))
+  require("telescope.builtin")[builtin_picker](opts)
 end
 
 function M.findConfigFile()
