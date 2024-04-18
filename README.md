@@ -39,6 +39,14 @@ scoop install python
 scoop install ripgrep
 ```
 
+**go**
+
+```powershell
+scoop install go
+# 使用国内镜像
+go env -w GOPROXY=https://goproxy.cn,direct
+```
+
 ## screenkey 的平替 [keyviz](https://github.com/mulaRahul/keyviz)
 
 ```powershell
