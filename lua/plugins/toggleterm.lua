@@ -9,9 +9,9 @@ return {
   },
   keys = {
     -- stylua: ignore start
-    {"<leader><tab><tab>","<cmd>ToggleTerm direction=tab<cr>",desc= "toggleterm in new tab"},
-    {"<leader>vv","<cmd>ToggleTerm direction=vertical<cr>",desc= "toggleterm vertical split"},
-    {"<leader>tt","<cmd>ToggleTerm direction=horizontal<cr>",desc= "toggleterm horizontal split"},
+    {"<F2>","<cmd>ToggleTerm direction=tab<cr>",mode = {"n","x","i","t"},desc= "toggleterm in new tab"},
+    {"<F5>","<cmd>ToggleTerm direction=horizontal<cr>",mode = {"n","x","i","t"},desc= "toggleterm horizontal split"},
+    {"<F6>","<cmd>ToggleTerm direction=vertical size=40<cr>",mode = {"n","x","i","t"},desc= "toggleterm vertical split"},
     -- stylua: ignore end
   },
 }
