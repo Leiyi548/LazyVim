@@ -16,7 +16,7 @@ local function getDateTime(index)
 end
 
 ls.add_snippets("all", {
-  s("/date3", {
+  s({ trig = "/date3", snippetType = "autosnippet" }, {
     t(getDateTime(3)),
   }),
 })
