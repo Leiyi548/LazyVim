@@ -1,3 +1,5 @@
+_G.LazyVim = require("lazyvim.util")
+
 local number_array = { "󰼏", "󰼐", "󰼑", "󰼒", "󰼓", "󰼔", "󰼕", "󰼖", "󰼗" }
 local window_number = {
   function()
@@ -11,7 +13,7 @@ local project = {
   function()
     return "󱉭 " .. vim.fs.basename(vim.uv.cwd())
   end,
-  color = { fg = "#DBBC7F" },
+  color = { fg = LazyVim.ui.fg("Keyword") },
   always_visible = true,
 }
 return {
