@@ -1,5 +1,7 @@
 # 💤 LazyVim
 
+**Less is More**
+
 这是我的配置，用起来一般般啊，你也能用很mbbb。
 
 ## 安装之前需要的东西
@@ -62,7 +64,7 @@ scoop install keyviz
 ## flash-zhh.nvim
 
 folke 写的 flash 只能跳转英文，而我这个能够跳转中文，当然现在还有很多问题就是只能跳转一个中文为对象。
-写东西看东西也是非常好的哦
+写东西看东西也是非常好的哦！ 
 
 ## neovide
 
@@ -78,18 +80,14 @@ folke 写的 flash 只能跳转英文，而我这个能够跳转中文，当然�
 
 那么你想要坚着分屏就用 `:vert[ical] Git`  就行了。具体可以看这个 [issue](https://github.com/tpope/vim-fugitive/issues/1237)
 
-## lsd
+## 批量替换操作
 
-windows 原生的 ls 看起来很丑还没有图标，所以用 lsd 美化 `ls` 命令
+先用 `Telescope live_grep` 搜索自己想要的关键字,然后用 `ctrl-q` 发送到 quickfix。
 
-### 添加 alias
+在 quickfix buffer 里执行这个命令，`cdo s/pattern/replacement/g`，然后就能进行全部替换。
+`cdo s/pattern/replacement/gc`，一个个询问替换。
 
-`nvim $HOME\Documents\PowerShell\Profile.ps1` → 打开 powershell 配置
-
-```powershell
-Set-Alias ls lsd
-function ll {lsd -l}
-```
+使用 `cdo undo` 就能撤销修改 
 
 ## TODO
 
