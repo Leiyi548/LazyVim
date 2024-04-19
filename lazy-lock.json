@@ -20,7 +20,6 @@
   "flash.nvim": { "branch": "main", "commit": "57b558c273ee1440de6fd02035afcdc52c586c1d" },
   "friendly-snippets": { "branch": "main", "commit": "ea068f1becd91bcd4591fceb6420d4335e2e14d3" },
   "gitsigns.nvim": { "branch": "main", "commit": "7e38f07cab0e5387f9f41e92474db174a63a4725" },
-  "grapple.nvim": { "branch": "main", "commit": "12172536620464f8cc124e07c6e3ccd306ea3c5c" },
   "indent-blankline.nvim": { "branch": "master", "commit": "3d08501caef2329aba5121b753e903904088f7e6" },
   "lazy.nvim": { "branch": "main", "commit": "bef521ac89c8d423f9d092e37b58e8af0c099309" },
   "lsp-progress.nvim": { "branch": "main", "commit": "83b16a9791fa788c0a7ca90374118ed15d2c09ed" },
