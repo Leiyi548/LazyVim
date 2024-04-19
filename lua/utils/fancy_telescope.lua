@@ -83,6 +83,7 @@ end
 function M.findBuffer()
   local opts = {
     initial_mode = "normal",
+    entry_maker = require("mytelescope.my_make_entry").gen_from_buffer_like_leaderf(),
     sort_lastused = true,
     sort_mru = true,
     ignore_current_buffer = false,
