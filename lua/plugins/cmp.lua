@@ -131,6 +131,15 @@ return {
             return fallback()
           end,
         },
+        ["<End>"] = {
+          c = function(fallback)
+            local cmp_im = require("cmp_im")
+            if cmp_im.getStatus() and cmp.visible() then
+              return cmp.abort()
+            end
+            return fallback()
+          end,
+        },
       }),
       sources = require("cmp").config.sources({
         { name = "path" },
