@@ -157,8 +157,9 @@ return {
         sorting_strategy = "ascending", -- 按照升序排序
         dynamic_preview_title = true,
         layout_config = {
-          horizontal = { prompt_position = "top", preview_width = 0.6 },
+          horizontal = { prompt_position = "top", preview_width = 0.6, preview_cutoff = 0 },
           vertical = { prompt_position = "top", mirror = true },
+          -- make telescope full width
           width = { padding = 0 },
           height = { padding = 0 },
         },
