@@ -182,6 +182,10 @@ return {
             ["<a-t>"] = open_selected_with_trouble,
             ["<a-i>"] = find_files_no_ignore,
             ["<a-h>"] = find_files_with_hidden,
+            ["<C-q>"] = function(...)
+              actions.smart_send_to_qflist(...)
+              actions.open_qflist(...)
+            end,
             ["<C-Down>"] = actions.cycle_history_next,
             ["<C-Up>"] = actions.cycle_history_prev,
             ["<C-b>"] = actions.preview_scrolling_left,
@@ -190,6 +194,10 @@ return {
           },
           n = {
             ["<c-k>"] = open_with_trouble,
+            ["<C-q>"] = function(...)
+              actions.smart_send_to_qflist(...)
+              actions.open_qflist(...)
+            end,
             ["q"] = actions.close,
             ["<c-s>"] = flash,
             ["<C-b>"] = actions.preview_scrolling_left,
