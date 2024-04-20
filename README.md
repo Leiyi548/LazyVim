@@ -89,6 +89,18 @@ folke 写的 flash 只能跳转英文，而我这个能够跳转中文，当然�
 
 使用 `cdo undo` 就能撤销修改 
 
+## fzf 结合 neovim
+
+使用命令 `nvim $(fzf)`  可以通过 fzf 搜索文件，然后立马用 nvim 打开。
+
+### 设置 alias
+
+`nvim $HOME\Documents\PowerShell\Profile.ps1` → 打开 powershell 配置
+
+```powershell
+function fzn {nvim $(fzf)}
+```
+
 ## TODO
 
 - [x] fugitive 窗口用 q 来进行退出
