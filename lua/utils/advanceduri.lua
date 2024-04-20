@@ -2,7 +2,7 @@ local M = {}
 
 local function markdownlint(vault, filepath)
   -- 参考 obsidian.lua 插件中的 open.lua 文件
-  local uri = ("obsidian://advanced-uri?&vault=%s&filepath=%s&commandid=obsidian-linter:lint-file"):format(
+  local uri = ("obsidian://advanced-uri?&vault=%s&filepath=%s&commandid=obsidian-linter:lint-file&viewmode=source"):format(
     vault,
     filepath
   )
@@ -23,7 +23,7 @@ end
 
 local function openfile(vault, filepath)
   -- 参考 obsidian.lua 插件中的 open.lua 文件
-  local uri = ("obsidian://advanced-uri?&vault=%s&filepath=%s"):format(vault, filepath)
+  local uri = ("obsidian://advanced-uri?&vault=%s&filepath=%s&viewmode=source"):format(vault, filepath)
   uri = vim.fn.shellescape(uri)
   local cmd = "powershell"
   local args = { "Start-Process '" .. uri .. "'" }
