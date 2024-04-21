@@ -3,6 +3,8 @@ return {
   {
     "stevearc/oil.nvim",
     cmd = "Oil",
+    -- 修复 float window bug，等作者修复好再用最后 release。
+    tag = "v2.8.0",
     init = function()
       if vim.fn.argc(-1) == 1 then
         local stat = vim.loop.fs_stat(vim.fn.argv(0))
