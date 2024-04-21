@@ -32,7 +32,8 @@ end
 function M.findProjectFile()
   local builtin_picker = "find_files"
   local opts = {
-    prompt_title = "findProjectFile",
+    prompt_title = "",
+    results_title = "Result(findProjectFile)",
     show_untracked = true,
   }
   if

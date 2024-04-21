@@ -153,13 +153,19 @@ return {
     return {
       defaults = {
         prompt_prefix = " ",
+        layout_strategy = "vertical",
         -- selection_caret = " ",
         selection_caret = " ",
-        sorting_strategy = "ascending", -- 按照升序排序
+        path_display = {
+          filename_first = {
+            reverse_directories = false,
+          },
+        },
+        -- sorting_strategy = "ascending", -- 按照升序排序
         dynamic_preview_title = true,
         layout_config = {
-          horizontal = { prompt_position = "top", preview_width = 0.6, preview_cutoff = 0 },
-          vertical = { prompt_position = "top", mirror = true },
+          horizontal = { prompt_position = "bottom", preview_width = 0.6, preview_cutoff = 0 },
+          vertical = { prompt_position = "bottom", mirror = false, preview_cutoff = 0 },
           -- make telescope full width
           width = { padding = 0 },
           height = { padding = 0 },
@@ -203,8 +209,13 @@ return {
           },
         },
       },
+
       pickers = {
+        git_files = {
+          layout_strategy = "vertical",
+        },
         git_status = {
+          layout_strategy = "vertical",
           git_icons = {
             added = "",
             changed = "",
@@ -231,7 +242,7 @@ return {
         },
         current_buffer_fuzzy_find = {
           skip_empty_lines = true,
-          layout_strategy = "horizontal",
+          layout_strategy = "vertical",
           previewer = true,
           mappings = {
             i = {
