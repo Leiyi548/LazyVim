@@ -153,7 +153,8 @@ return {
     return {
       defaults = {
         prompt_prefix = " ",
-        selection_caret = " ",
+        -- selection_caret = " ",
+        selection_caret = " ",
         sorting_strategy = "ascending", -- 按照升序排序
         dynamic_preview_title = true,
         layout_config = {
