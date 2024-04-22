@@ -146,3 +146,7 @@ map("x", "<leader>tw", "<cmd>Translate<cr>", { desc = "Translate the word under 
 
 -- message
 map("n", "<leader>snm", "<cmd>message<cr>", { desc = "message" })
+
+-- textobject
+map({ "x", "o" }, "il", ":<c-u>normal! g_v^<cr>", { desc = "select current line not include whitespace" })
+map({ "x", "o" }, "al", ":<c-u>normal! $v0<cr>", { desc = "select current line include whitespace" })
