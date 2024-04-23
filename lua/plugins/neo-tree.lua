@@ -121,7 +121,7 @@ return {
         ---@param input NuiInput
         handler = function(input)
           -- enter input popup with normal mode by default.
-          vim.cmd("stopinsert")
+          -- vim.cmd("stopinsert")
         end,
       },
     }
