@@ -93,7 +93,7 @@ return {
       options = {
         theme = "auto",
         globalstatus = true,
-        disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
+        disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" }, winbar = { "dashboard" } },
       },
       sections = {
         -- lualine_a = { window_number },
