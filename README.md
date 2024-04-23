@@ -49,6 +49,39 @@ scoop install go
 go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
+## 安装
+
+### windows
+
+- 确保你原本的配置文件被备份
+
+```powershell
+# required
+Move-Item $env:LOCALAPPDATA\nvim $env:LOCALAPPDATA\nvim.bak
+
+# optional but recommended
+Move-Item $env:LOCALAPPDATA\nvim-data $env:LOCALAPPDATA\nvim-data.bak
+```
+
+- 克隆我的配置
+
+```powershell
+git clone https://github.com/Leiyi548/Lazyvim $env:LOCALAPPDATA\nvim
+
+```
+
+- 删除 .git 文件夹，你可以添加到自己的仓库
+
+```powershell
+Remove-Item $env:LOCALAPPDATA\nvim\.git -Recurse -Force
+```
+
+- 启动 nvim，享受它
+
+```powershell
+nvim
+```
+
 ## screenkey 的平替 [keyviz](https://github.com/mulaRahul/keyviz)
 
 ```powershell
