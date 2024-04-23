@@ -110,6 +110,15 @@ return {
             return fallback()
           end,
         },
+        ["<End>"] = {
+          c = function(fallback)
+            local cmp_im = require("cmp_im")
+            if cmp_im.getStatus() and cmp.visible() then
+              return cmp.abort()
+            end
+            return fallback()
+          end,
+        },
       }),
       sources = {
         { name = "buffer" },
@@ -117,7 +126,7 @@ return {
       },
     })
     -- `:` cmdline setup.
-    cmp.setup.cmdline(":", {
+    cmp.setup.cmdline({ ":", "@" }, {
       mapping = cmp.mapping.preset.cmdline({
         ["<Space>"] = {
           c = function(fallback)
