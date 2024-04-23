@@ -98,10 +98,11 @@ return {
       sections = {
         -- lualine_a = { window_number },
         lualine_a = { "mode" },
-        lualine_b = { "branch" },
+        -- lualine_b = { "branch" },
+        lualine_b = { project },
 
         lualine_c = {
-          project,
+          -- project,
           {
             "diagnostics",
             symbols = {
