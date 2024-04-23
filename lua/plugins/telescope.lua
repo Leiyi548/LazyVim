@@ -16,6 +16,21 @@ return {
       end,
     },
     {
+      "nvim-telescope/telescope-file-browser.nvim",
+      config = function()
+        Util.on_load("telescope.nvim", function()
+          require("telescope").load_extension("file_browser")
+        end)
+      end,
+      require("telescope").setup({
+        extensions = {
+          file_browser = {
+            use_ui_input = false,
+          },
+        },
+      }),
+    },
+    {
       "Leiyi548/project.nvim",
       opts = {
         -- Manual mode doesn't automatically change your root directory, so you have
@@ -55,7 +70,8 @@ return {
     { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
     { "<leader><space>", false },
     -- find
-    { "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
+    -- { "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
+    { "<leader>fb", false },
     -- { "<leader>fc", Util.telescope.config_files(), desc = "Find Config File" },
     { "<leader>fc", false },
     { "<leader>fr", false },
@@ -209,11 +225,7 @@ return {
           },
         },
       },
-
       pickers = {
-        git_files = {
-          layout_strategy = "vertical",
-        },
         git_status = {
           layout_strategy = "vertical",
           git_icons = {

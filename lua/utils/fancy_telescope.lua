@@ -21,20 +21,17 @@ local file_ignore_patterns = {
   "a.out",
 }
 
-function M.findFile()
-  local opts = {
-    prompt_title = "findFile",
-    file_ignore_patterns = file_ignore_patterns,
-  }
-  builtin.find_files(themes.get_dropdown(opts))
-end
-
 function M.findProjectFile()
   local builtin_picker = "find_files"
   local opts = {
     prompt_title = "",
     results_title = "Result(findProjectFile)",
     show_untracked = true,
+    path_display = {
+      filename_first = {
+        reverse_directories = false,
+      },
+    },
   }
   if
     vim.uv.fs_stat(vim.uv.cwd() .. "/.git")
@@ -114,6 +111,14 @@ function M.grep_string_by_filetype()
     type_filter = vim.fn.input("FireType: "),
   }
   builtin.live_grep(opts)
+end
+
+function M.super_file_browser()
+  local opts = {
+    initial_mode = "normal",
+    prompt_title = vim.uv.cwd() .. "(file_browser)",
+  }
+  require("telescope").extensions.file_browser.file_browser(opts)
 end
 
 return M

@@ -129,6 +129,8 @@ map("n", "<leader>sg", function() require("utils.fancy_telescope").live_grep_pro
 map("n", "<leader>gf", "<cmd>Telescope git_files<cr>", { desc = "Telescope git_files" })
 map("n", "<leader>fh", "<cmd>Telescope highlights<cr>", { desc = "Telescope git_files" })
 map("n", "<leader>bf", "<cmd>Telescope buffers<cr>", { desc = "Telescope buffers" })
+map("n", "<leader>sq", "<cmd>Telescope quickfix<cr>", { desc = "Telescope quickfix" })
+map("n", "<leader>fb", function() require("utils.fancy_telescope").super_file_browser() end, { desc = "Telescope file_browse" })
 
 -- flash-zhh
 map({"n","x"}, "s",function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code)" })
