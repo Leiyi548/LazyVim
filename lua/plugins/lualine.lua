@@ -43,7 +43,7 @@ return {
           local lsp_clients = vim.lsp.get_active_clients()
           local messages_map = {}
           for _, climsg in ipairs(client_messages) do
-            messages_map[climsg.name] = climsg.body
+            messages_map[climsg.name] = string.match(climsg.body, "(%d+%%)")
           end
 
           if #lsp_clients > 0 then
