@@ -26,6 +26,7 @@ return {
         extensions = {
           file_browser = {
             use_ui_input = false,
+            layout_strategy = "horizontal",
           },
         },
       }),
