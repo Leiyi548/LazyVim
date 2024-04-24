@@ -24,13 +24,15 @@ map({ "n", "x", "o" }, "<S-h>", "0", { desc = "Home" })
 map({ "n", "x", "o" }, "<S-l>", "$", { desc = "End" })
 
 -- remove lazyvim Default keymap
-vim.keymap.del("n", "<C-j>")
-vim.keymap.del("n", "<C-k>")
-vim.keymap.del("n", "<C-h>")
-vim.keymap.del("n", "<C-l>")
+-- vim.keymap.del("n", "<C-j>")
+-- vim.keymap.del("n", "<C-k>")
+-- vim.keymap.del("n", "<C-h>")
+-- vim.keymap.del("n", "<C-l>")
 -- vim.keymap.del({ "n", "x" }, "j")
 -- vim.keymap.del({ "n", "x" }, "k")
 vim.keymap.del("n", "<leader>l")
+vim.keymap.del("t", "<esc><esc>")
+map("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
 
 -- lazy
 map("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Lazy" })

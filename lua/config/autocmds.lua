@@ -51,6 +51,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function(ctx)
     -- git commit vertical split
     vim.keymap.set("n", "cvv", "<cmd>vert Git commit -v<cr>", { remap = true, buffer = ctx.buf })
+    vim.keymap.set("n", "cxx", "<cmd>Git commit -v<cr>", { remap = true, buffer = ctx.buf })
     vim.keymap.set("n", "<Tab>", "=", { remap = true, buffer = ctx.buf })
     vim.keymap.set("n", "t", "-", { remap = true, buffer = ctx.buf })
     vim.keymap.set("n", "a", function()
