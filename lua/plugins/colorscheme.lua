@@ -1,20 +1,3 @@
-local function get_colorscheme()
-  local _time = os.date("*t")
-  local colorscheme = ""
-  if _time.hour >= 16 or _time.hour < 8 then
-    vim.opt.background = "dark"
-    colorscheme = "everforest"
-  else
-    vim.opt.background = "light"
-    -- github_light_colorblind
-    -- tokyonight-day
-    -- catppuccin-latte
-    -- everforest
-    colorscheme = "everforest"
-  end
-  return colorscheme
-end
-
 return {
   {
     "neanias/everforest-nvim",
@@ -77,12 +60,5 @@ return {
         end,
       })
     end,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      -- available theme: everforest tokyonight tokyonight-day
-      colorscheme = get_colorscheme(),
-    },
   },
 }
