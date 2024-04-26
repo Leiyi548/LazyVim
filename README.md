@@ -49,6 +49,13 @@ scoop install go
 go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
+**rust**
+
+```powershell
+scoop install rust
+scoop install rustup
+```
+
 ## 安装
 
 ### windows
