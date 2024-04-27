@@ -57,6 +57,7 @@ return {
         { "<leader>pr", "<Cmd>ProjectRoot<CR>", desc = "ProjectRoot" },
         { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
         { "<leader>fo", "<Cmd>Telescope oil<CR>", desc = "oil Projects" },
+        { "<leader>bp", "<Cmd>Telescope projectBrowser<CR>", desc = "file_browser Projects" },
         { "<leader>fg", "<Cmd>Telescope projectGrep<CR>", desc = "projectGrep" },
       },
     },

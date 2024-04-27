@@ -27,6 +27,7 @@ return {
           { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
           { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
           { action = "Telescope projects",                                       desc = " Project",         icon = "󱉭 ", key = "p" },
+          { action = "Telescope projectBrowser",                                 desc = " Browser",         icon = " ", key = "b" },
           { action = "Telescope oil",                                            desc = " Oil",             icon = "󰐅 ", key = "o" },
           { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
         },
