@@ -122,12 +122,20 @@ folke 写的 flash 只能跳转英文，而我这个能够跳转中文，当然�
 
 ## 批量替换操作
 
+### Telescope live_grep 结合 cdo
+
 先用 `Telescope live_grep` 搜索自己想要的关键字,然后用 `ctrl-q` 发送到 quickfix。
 
 在 quickfix buffer 里执行这个命令，`cdo s/pattern/replacement/g`，然后就能进行全部替换。
 `cdo s/pattern/replacement/gc`，一个个询问替换。
 
 使用 `cdo undo` 就能撤销修改 
+
+### 使用 quickfix-reflector （推荐）
+
+这个插件能让 quickfix 跟 buffer 一样操作。
+
+想要改什么直接改就是，然后保存就可以直接修改。
 
 ## fzf 结合 neovim
 
