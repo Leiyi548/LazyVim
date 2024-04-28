@@ -8,6 +8,9 @@ return {
      ██ ██    ██ ███████    ██        ██   ██ ██    ██     ██    ██    
 ██   ██ ██    ██      ██    ██        ██   ██ ██    ██     ██    ██    
 ███████ ████████ ███████    ██        ██████   ██████      ██    ██    
+
+
+                            不要忘记每日记账                           
     ]]
 
     logo = string.rep("\n", 3) .. logo .. "\n\n"
@@ -29,6 +32,7 @@ return {
           { action = "Telescope projects",                                       desc = " Project",         icon = "󱉭 ", key = "p" },
           { action = "Telescope projectBrowser",                                 desc = " Browser",         icon = " ", key = "b" },
           { action = "Telescope oil",                                            desc = " Oil",             icon = "󰐅 ", key = "o" },
+          { action = 'lua require("utils.mybeancount").make_beancount()',        desc = " Beancount",       icon = " ",key = "m" },
           { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
         },
         footer = function()
