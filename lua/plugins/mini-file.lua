@@ -148,8 +148,8 @@ return {
           require("mini.files").synchronize()
         end, { buffer = args.data.buf_id })
         -- use ctrl-c to quit mini-file buffer
-        vim.keymap.set({ "i", "x" }, "<C-s>", function()
-          require("mini.files").synchronize()
+        vim.keymap.set({ "i", "x", "n" }, "<C-c>", function()
+          require("mini.files").close()
         end, { buffer = args.data.buf_id })
       end,
     })
