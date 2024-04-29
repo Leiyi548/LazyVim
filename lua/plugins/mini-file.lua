@@ -18,10 +18,10 @@ return {
     -- Use `''` (empty string) to not create one.
     mappings = {
       close = "q",
-      go_in = "l",
-      go_in_plus = "L",
-      go_out = "h",
-      go_out_plus = "H",
+      go_in = "L",
+      go_in_plus = "l",
+      go_out = "H",
+      go_out_plus = "h",
       reset = "<BS>",
       reveal_cwd = "@",
       show_help = "g?",
@@ -150,6 +150,9 @@ return {
         -- use ctrl-c to quit mini-file buffer
         vim.keymap.set({ "i", "x", "n" }, "<C-c>", function()
           require("mini.files").close()
+        end, { buffer = args.data.buf_id })
+        vim.keymap.set("n", "<cr>", function()
+          require("mini.files").go_in({ close_on_file = true })
         end, { buffer = args.data.buf_id })
       end,
     })
