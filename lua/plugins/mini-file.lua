@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.files",
+  "Leiyi548/mini.files",
   enabled = true,
   opts = {
     windows = {
