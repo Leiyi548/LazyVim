@@ -40,7 +40,7 @@ function M.make_beancount()
       print("Menu Submitted: ", item.text)
       local mybeancountDict = {
         ["微信"] = "wechat",
-        ["支持宝"] = "alipay",
+        ["支付宝"] = "alipay",
         ["现金"] = "cash",
         ["银行卡"] = "bank",
         ["京东"] = "jingdong",
