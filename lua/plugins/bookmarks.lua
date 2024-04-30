@@ -1,5 +1,6 @@
 return {
   "LintaoAmons/bookmarks.nvim",
+  enabled = false,
   cmd = { "BookmarksGoto", "BookmarksMark" },
   config = function()
     require("bookmarks").setup({
