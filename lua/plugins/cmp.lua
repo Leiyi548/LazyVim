@@ -128,6 +128,14 @@ return {
     -- `:` cmdline setup.
     cmp.setup.cmdline({ ":", "@" }, {
       mapping = cmp.mapping.preset.cmdline({
+        ["<Tab>"] = {
+          c = function(fallback)
+            if cmp.visible() then
+              return cmp.confirm({ select = true })
+            end
+            return fallback()
+          end,
+        },
         ["<Space>"] = {
           c = function(fallback)
             local cmp_im = require("cmp_im")
