@@ -116,7 +116,7 @@ map("n", "<C-w>x", "<C-w>s", { desc = "横向分屏当前 buffer" })
 map("n", "<C-w>s", "<C-w>x", { desc = "跟下一个窗口进行交换" })
 -- obsidian
 -- stylua: ignore start
-map("n", "<leader>oo", function() require("utils.advanceduri").obsidianOpenCurrentFile() end, { desc = "Obsidian open current file" })
+map("n", "<leader>oc", function() require("utils.advanceduri").obsidianOpenCurrentFile() end, { desc = "Obsidian open current file" })
 map("n", "<leader>of", function() require("utils.advanceduri").markdownlintCurrentFile()() end, { desc = "Obsidian format current file" })
 
 -- telescope
