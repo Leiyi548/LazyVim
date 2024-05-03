@@ -213,8 +213,10 @@ return {
             ["<C-Left>"] = actions.preview_scrolling_left,
             ["<C-Right>"] = actions.preview_scrolling_right,
             ["<Right>"] = actions.preview_scrolling_right,
+            ["<Esc>"] = false,
           },
           n = {
+            ["<Esc>"] = false,
             ["<c-k>"] = open_with_trouble,
             ["<C-q>"] = function(...)
               actions.smart_send_to_qflist(...)
