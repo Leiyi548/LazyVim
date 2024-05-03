@@ -217,6 +217,7 @@ return {
           },
           n = {
             ["<Esc>"] = false,
+            ["<C-c>"] = actions.close,
             ["<c-k>"] = open_with_trouble,
             ["<C-q>"] = function(...)
               actions.smart_send_to_qflist(...)
