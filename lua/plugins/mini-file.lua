@@ -19,9 +19,9 @@ return {
     mappings = {
       close = "q",
       go_in = "L",
-      go_in_plus = "l",
+      go_in_plus = ".",
       go_out = "H",
-      go_out_plus = "h",
+      go_out_plus = ",",
       reset = "<BS>",
       reveal_cwd = "@",
       show_help = "g?",
