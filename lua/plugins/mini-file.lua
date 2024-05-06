@@ -18,11 +18,11 @@ return {
     -- Use `''` (empty string) to not create one.
     mappings = {
       close = "q",
-      go_in = "L",
-      go_in_plus = ".",
-      go_out = "H",
-      go_out_plus = ",",
-      reset = "<BS>",
+      go_in = "",
+      go_in_plus = "<CR>",
+      go_out = "",
+      go_out_plus = "<BS>",
+      reset = "~",
       reveal_cwd = "@",
       show_help = "g?",
       synchronize = "<C-s>",
@@ -37,7 +37,7 @@ return {
   },
   keys = {
     {
-      "<leader>oo",
+      "<leader>e",
       function()
         require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
       end,
@@ -82,7 +82,7 @@ return {
     vim.api.nvim_create_autocmd("User", {
       pattern = "MiniFilesBufferCreate",
       callback = function(args)
-        vim.keymap.set("n", "g~", files_set_cwd, { buffer = args.data.buf_id })
+        vim.keymap.set("n", "`", files_set_cwd, { buffer = args.data.buf_id })
       end,
     })
 
@@ -150,9 +150,6 @@ return {
         -- use ctrl-c to quit mini-file buffer
         vim.keymap.set({ "i", "x", "n" }, "<C-c>", function()
           require("mini.files").close()
-        end, { buffer = args.data.buf_id })
-        vim.keymap.set("n", "<cr>", function()
-          require("mini.files").go_in({ close_on_file = true })
         end, { buffer = args.data.buf_id })
       end,
     })
