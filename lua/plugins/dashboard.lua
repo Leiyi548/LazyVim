@@ -78,8 +78,8 @@ local function week_header(concat, append)
     ["Wednesday"] = "今天周三要努力找工作哦",
     ["Thursday"] = "今天周四要努力找工作哦",
     ["Friday"] = "今天周五要努力找工作哦",
-    ["Saturday"] = "周末,Happyday",
-    ["Sunday"] = "周末,Happyday",
+    ["Saturday"] = "周末第一天,Happyday",
+    ["Sunday"] = "周末最后一天,Happyday,明天又要当牛马",
   }
   local week = week_ascii_text()
   local daysoftheweek = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }
