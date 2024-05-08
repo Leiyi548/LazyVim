@@ -154,3 +154,19 @@ map("n", "<leader>snm", "<cmd>message<cr>", { desc = "message" })
 -- textobject
 map({ "x", "o" }, "il", ":<c-u>normal! g_v^<cr>", { desc = "select current line not include whitespace" })
 map({ "x", "o" }, "al", ":<c-u>normal! $v0<cr>", { desc = "select current line include whitespace" })
+
+-- toggleterm
+map("n", "<leader>bt", function()
+  local Terminal = require("toggleterm.terminal").Terminal
+  local lazygit = Terminal:new({
+    cmd = "btop",
+    hidden = true,
+    direction = "float",
+    float_opts = {
+      width = 100,
+      height = 24,
+      border = "solid",
+    },
+  })
+  lazygit:toggle()
+end, { desc = "Toggle btop" })

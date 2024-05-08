@@ -56,6 +56,12 @@ scoop install rust
 scoop install rustup
 ```
 
+**btop**
+
+```powershell
+scoop install btop
+```
+
 ## 安装
 
 ### windows
