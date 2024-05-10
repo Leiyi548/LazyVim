@@ -55,6 +55,7 @@ return {
       end,
       keys = {
         { "<leader>pr", "<Cmd>ProjectRoot<CR>", desc = "ProjectRoot" },
+        { "<leader>pc", "<Cmd>AddCurrentDirAsProject<CR>", desc = "Add current dir as Project" },
         { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
         { "<leader>fo", "<Cmd>Telescope oil<CR>", desc = "oil Projects" },
         { "<leader>bp", "<Cmd>Telescope projectBrowser<CR>", desc = "file_browser Projects" },
