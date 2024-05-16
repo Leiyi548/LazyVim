@@ -161,6 +161,13 @@ return {
     },
     keys = {
       {
+        "-",
+        function()
+          vim.cmd([[Oil]])
+        end,
+        desc = "Open parent directory(Oil)",
+      },
+      {
         "<leader>op",
         function()
           vim.cmd([[Oil]])
