@@ -71,7 +71,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "P", function()
       local choice = vim.fn.confirm(
         string.format("是否要 Push 到远程(%s)分支", vim.fn.FugitiveHead()):format(vim.fn.bufname()),
-        "&Ok\n&Cancel",
+        "&Yes\n&No",
         1
       )
       if choice == 1 then
