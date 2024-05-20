@@ -10,7 +10,7 @@ return {
       changedelete = { text = "▎" },
       untracked = { text = "▎" },
     },
-    numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
+    numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
     preview_config = {
       -- Options passed to nvim_open_win
       border = "solid",
