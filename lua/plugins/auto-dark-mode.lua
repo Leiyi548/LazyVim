@@ -8,7 +8,9 @@ return {
     end,
     set_light_mode = function()
       vim.api.nvim_set_option("background", "light")
-      vim.cmd("colorscheme everforest")
+      -- everforest
+      -- newpaper
+      vim.cmd("colorscheme newpaper")
     end,
   },
 }
