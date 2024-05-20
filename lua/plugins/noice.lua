@@ -1,7 +1,15 @@
+local center_pos = {
+  size = { width = "50%" },
+  border = { style = "none", padding = { top = 1, bottom = 1, left = 1, right = 1 } },
+}
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
   opts = {
+    views = {
+      cmdline_popup = center_pos,
+      popupmenu = center_pos,
+    },
     lsp = {
       progress = {
         enabled = false,
