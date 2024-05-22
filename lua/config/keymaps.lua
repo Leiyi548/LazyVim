@@ -5,7 +5,7 @@ local map = vim.keymap.set
 
 -- force delete buffer
 -- stylua: ignore
-map("n", "<leader>bx", function() require("mini.bufremove").delete(0, true) end, { desc = "Delete word" })
+-- map("n", "<leader>bx", function() require("mini.bufremove").delete(0, true) end, { desc = "Delete word" })
 
 -- 让 ctrl+delete 等于 ctrl+w 去删除光标前面的单词
 map({ "i", "c" }, "<C-BS>", "<C-w>", { desc = "Delete word" })
@@ -24,27 +24,17 @@ map({ "n", "x", "o" }, "<S-h>", "0", { desc = "Home" })
 map({ "n", "x", "o" }, "<S-l>", "$", { desc = "End" })
 
 -- remove lazyvim Default keymap
-vim.keymap.del("n", "<C-j>")
-vim.keymap.del("n", "<C-k>")
-vim.keymap.del("n", "<C-h>")
-vim.keymap.del("n", "<C-l>")
+-- vim.keymap.del("n", "<C-j>")
+-- vim.keymap.del("n", "<C-k>")
+-- vim.keymap.del("n", "<C-h>")
+-- vim.keymap.del("n", "<C-l>")
 -- vim.keymap.del({ "n", "x" }, "j")
 -- vim.keymap.del({ "n", "x" }, "k")
 vim.keymap.del("n", "<leader>l")
-vim.keymap.del("t", "<esc><esc>")
-map("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+map("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode in terminal" })
 
 -- lazy
-map("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Lazy" })
-
--- lsp
-map("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "LspInfo" })
-map("n", "<leader>ll", "<cmd>LspLog<cr>", { desc = "LspLog" })
-map("n", "<leader>ls", "<cmd>LspStop<cr>", { desc = "LspStop" })
-
--- dark light background keymap
-map("n", "<leader>uD", "<cmd>set background=dark<cr>", { desc = "set dark background" })
-map("n", "<leader>uL", "<cmd>set background=light<cr>", { desc = "set light background" })
+map("n", "<leader>lz", "<cmd>Lazy<cr>", { desc = "Open Lazy float window" })
 
 -- :x
 map("n", "<leader>qx", "<cmd>x<cr>", { desc = "save close window" })
@@ -74,14 +64,6 @@ map("n", "<leader>h", "<cmd>nohl<cr>", { desc = "clear highlight" })
 -- force quit all
 map("n", "<leader>qf", "<cmd>qa!<cr>", { desc = "force quit all" })
 
--- toggle cmp_im
-map({ "n", "x", "i", "c" }, "<C-.>", function()
-  vim.notify(string.format("虎码%s", require("cmp_im").toggle() and "启动" or "退出"))
-end)
-map({ "n", "x", "i" }, "<C-,>", function()
-  require("cmp_im").toggle_chinese_symbol()
-end)
-
 -- better ctrl-d ctrl-u
 map("n", "<C-d>", "<C-d>zz", { desc = "scroll down half page and center page" })
 map("n", "<C-u>", "<C-u>zz", { desc = "scroll up half page and center page" })
@@ -101,43 +83,19 @@ map("v", "<M-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<M-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- window jump
-map("n", "<leader>1", "1<C-w>w", { desc = "Go to window 1" })
-map("n", "<leader>2", "2<C-w>w", { desc = "Go to window 2" })
-map("n", "<leader>3", "3<C-w>w", { desc = "Go to window 3" })
-map("n", "<leader>4", "4<C-w>w", { desc = "Go to window 4" })
-map("n", "<leader>5", "5<C-w>w", { desc = "Go to window 5" })
-map("n", "<leader>6", "6<C-w>w", { desc = "Go to window 6" })
-map("n", "<leader>7", "7<C-w>w", { desc = "Go to window 7" })
-map("n", "<leader>8", "8<C-w>w", { desc = "Go to window 8" })
-map("n", "<leader>9", "9<C-w>w", { desc = "Go to window 9" })
+-- map("n", "<leader>1", "1<C-w>w", { desc = "Go to window 1" })
+-- map("n", "<leader>2", "2<C-w>w", { desc = "Go to window 2" })
+-- map("n", "<leader>3", "3<C-w>w", { desc = "Go to window 3" })
+-- map("n", "<leader>4", "4<C-w>w", { desc = "Go to window 4" })
+-- map("n", "<leader>5", "5<C-w>w", { desc = "Go to window 5" })
+-- map("n", "<leader>6", "6<C-w>w", { desc = "Go to window 6" })
+-- map("n", "<leader>7", "7<C-w>w", { desc = "Go to window 7" })
+-- map("n", "<leader>8", "8<C-w>w", { desc = "Go to window 8" })
+-- map("n", "<leader>9", "9<C-w>w", { desc = "Go to window 9" })
 
 -- change window origin keymap
 map("n", "<C-w>x", "<C-w>s", { desc = "横向分屏当前 buffer" })
 map("n", "<C-w>s", "<C-w>x", { desc = "跟下一个窗口进行交换" })
--- obsidian
--- stylua: ignore start
-map("n", "<leader>oc", function() require("utils.advanceduri").obsidianOpenCurrentFile() end, { desc = "Obsidian open current file" })
-map("n", "<leader>of", function() require("utils.advanceduri").markdownlintCurrentFile()() end, { desc = "Obsidian format current file" })
-
--- telescope
--- map("n", "<leader>ff", function() require("utils.fancy_telescope").findFile() end, { desc = "Find file" })
-map("n", "<leader>ff", function() require("utils.fancy_telescope").findProjectFile() end, { desc = "Find file" })
-map({"n","i","x"}, "<C-p>", function() require("utils.fancy_telescope").findProjectFile() end, { desc = "Find file" })
-map("n", "<leader>fr", function() require("utils.fancy_telescope").findRecentFile() end, { desc = "Find Recent File" })
-map("n", "<leader>fc", function() require("utils.fancy_telescope").findConfigFile() end, { desc = "Find Config File" })
-map("n", "<leader>bb", function() require("utils.fancy_telescope").findBuffer() end, { desc = "Switch buffer by telescope" })
-map("n", "<leader>sf", function() require("utils.fancy_telescope").grep_string_by_filetype() end, { desc = "Grep string by filetype" })
-map("n", "<leader>sg", function() require("utils.fancy_telescope").live_grep_project() end, { desc = "Grep string project" })
-map("n", "<leader>gf", "<cmd>Telescope git_files<cr>", { desc = "Telescope git_files" })
-map("n", "<leader>fh", "<cmd>Telescope highlights<cr>", { desc = "Telescope git_files" })
-map("n", "<leader>bf", "<cmd>Telescope buffers<cr>", { desc = "Telescope buffers" })
-map("n", "<leader>sq", "<cmd>Telescope quickfix<cr>", { desc = "Telescope quickfix" })
-map("n", "<leader>fb", function() require("utils.fancy_telescope").super_file_browser() end, { desc = "Telescope file_browse" })
-
--- flash-zhh
-map({"n","x"}, "s",function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code)" })
-map("o", "r",function() require("flash-zhh").jump() end, { desc = "Flash between Chinese(tiger code) Remote" })
--- stylua: ignore end
 
 -- bookmark
 map("n", "<leader>dm", "<cmd>delmarks!<cr>", { desc = "Delete Bookmarks" })
@@ -155,18 +113,16 @@ map("n", "<leader>snm", "<cmd>message<cr>", { desc = "message" })
 map({ "x", "o" }, "il", ":<c-u>normal! g_v^<cr>", { desc = "select current line not include whitespace" })
 map({ "x", "o" }, "al", ":<c-u>normal! $v0<cr>", { desc = "select current line include whitespace" })
 
--- toggleterm
-map("n", "<leader>bt", function()
-  local Terminal = require("toggleterm.terminal").Terminal
-  local lazygit = Terminal:new({
-    cmd = "btop",
-    hidden = true,
-    direction = "float",
-    float_opts = {
-      width = 100,
-      height = 24,
-      border = "solid",
-    },
-  })
-  lazygit:toggle()
-end, { desc = "Toggle btop" })
+-- blink.cmp 适配虎码
+map({ "i", "x", "n" }, "<C-.>", "<cmd>BlinkImZhhToggle<cr>", { desc = "启用虎码" })
+map("c", "<C-.>", function()
+  require("blink-im-zhh").toggle()
+end, { desc = "启用虎码 (cmdline)" })
+
+-- flash-zhh
+map({ "x", "n" }, "s", function()
+  require("flash-zhh").jump()
+end, { desc = "flash虎码跳转" })
+map({ "o" }, "r", function()
+  require("flash-zhh").jump()
+end, { desc = "flash虎码跳转" })

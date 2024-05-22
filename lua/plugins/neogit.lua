@@ -1,6 +1,6 @@
 return {
   "NeogitOrg/neogit",
-  enabled = false,
+  enabled = true,
   opts = {
     -- Hides the hints at the top of the status buffer
     disable_hint = false,
@@ -257,6 +257,6 @@ return {
   },
   config = true,
   keys = {
-    { "<leader>gt", "<cmd>Neogit<cr>", desc = "Open Neogit" },
+    { "<leader>ng", "<cmd>Neogit<cr>", desc = "Open Neogit" },
   },
 }

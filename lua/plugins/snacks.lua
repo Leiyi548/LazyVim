@@ -73,13 +73,13 @@ end
 
 local function week_header(concat, append)
   local week_text = {
-    ["Monday"] = "今天周一要努力找工作哦",
-    ["Tuesday"] = "今天周二要努力找工作哦",
-    ["Wednesday"] = "今天周三要努力找工作哦",
-    ["Thursday"] = "今天周四要努力找工作哦",
-    ["Friday"] = "今天周五要努力找工作哦",
-    ["Saturday"] = "周末第一天,Happyday",
-    ["Sunday"] = "周末最后一天,Happyday,明天又要当牛马",
+    ["Monday"] = "😅怎么又周一了！",
+    ["Tuesday"] = "😅才周二啊",
+    ["Wednesday"] = "怎么才周三啊",
+    ["Thursday"] = "周四了，希望这周是双休",
+    ["Friday"] = "周五了，要是双休就爽了",
+    ["Saturday"] = "服了，谁周六还要上班啊，可恶的mini版大小周！",
+    ["Sunday"] = "周末最后一天,Happyday",
   }
   local week = week_ascii_text()
   local daysoftheweek = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }
@@ -94,68 +94,81 @@ local function week_header(concat, append)
   table.insert(tbl, "")
   return tbl
 end
+
 return {
-  "nvimdev/dashboard-nvim",
-  event = "VimEnter",
+  "folke/snacks.nvim",
+  priority = 1000,
+  lazy = false,
+  ---@type snacks.Config
   opts = function()
-    local logo = [[
-     ██ ██    ██ ███████ ████████     ██████   ██████      ██ ████████ 
-     ██ ██    ██ ██         ██        ██   ██ ██    ██     ██    ██    
-     ██ ██    ██ ███████    ██        ██   ██ ██    ██     ██    ██    
-██   ██ ██    ██      ██    ██        ██   ██ ██    ██     ██    ██    
-███████ ████████ ███████    ██        ██████   ██████      ██    ██    
-
-
-                            不要忘记每日记账                           
-    ]]
-
-    logo = string.rep("\n", 3) .. logo .. "\n\n"
-
-    local opts = {
-      theme = "doom",
-      hide = {
-        -- this is taken care of by lualine
-        -- enabling this messes up the actual laststatus setting after loading a file
-        statusline = false,
-      },
-      config = {
-        -- header = vim.split(logo, "\n"),
-        header = week_header(),
-        -- stylua: ignore
-        center = {
-          { action = 'lua require("utils.fancy_telescope").findConfigFileDashboard()',    desc = " Config", icon = " ", key = "c" },
-          { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
-          { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
-          { action = "Telescope projects",                                       desc = " Project",         icon = "󱉭 ", key = "p" },
-          { action = "Telescope projectBrowser",                                 desc = " Browser",         icon = " ", key = "b" },
-          { action = "Telescope oil",                                            desc = " Oil",             icon = "󰐅 ", key = "o" },
-          { action = 'lua require("utils.mybeancount").make_beancount()',        desc = " Beancount",       icon = " ",key = "m" },
-          { action = "qa",                                                       desc = " Quit",            icon = " ", key = "q" },
+    local header_str = table.concat(week_header(), "\n")
+    return {
+      animate = { enabled = false },
+      bigfile = { enabled = true },
+      dashboard = {
+        enabled = true,
+        sections = {
+          { section = "header" },
+          { section = "keys", gap = 1, padding = 1 },
+          function(self)
+            local ok, lazy = pcall(require, "lazy")
+            if not ok then
+              return {}
+            end
+            local stats = lazy.stats()
+            local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+            return { { footer = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" } }
+          end,
         },
-        footer = function()
-          local stats = require("lazy").stats()
-          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
-        end,
+        preset = {
+          header = header_str,
+          keys = {
+            { icon = " ", key = "c", desc = "Config",  action = ":lua LazyVim.pick.config_files()()" },
+            { icon = " ", key = "p", desc = "Project", action = function() Snacks.picker.projects() end },
+            { icon = "󰒲 ", key = "l", desc = "Lazy",    action = ":Lazy" },
+            { icon = " ", key = "q", desc = "Quit",    action = ":qa" },
+          },
+        },
       },
+      explorer = { enabled = true },
+      indent = { enabled = true },
+      input = { enabled = true },
+      picker = {
+        enabled = true,
+        win = {
+          input = {
+            keys = {
+              ["<C-u>"] = { "preview_scroll_up", mode = { "n", "i" } },
+              ["<C-d>"] = { "preview_scroll_down", mode = { "n", "i" } },
+              ["<C-Left>"] = { "preview_scroll_left", mode = { "n", "i" } },
+              ["<C-Right>"] = { "preview_scroll_right", mode = { "n", "i" } },
+            },
+          },
+        },
+        sources = {
+          explorer = {
+            -- sidebar 默认宽 40，按需调小；仅作用于 explorer，不影响其他 picker
+            layout = { layout = { width = 30 } },
+          },
+        },
+        db = { sqlite3_path =  vim.fn.stdpath("data") .. "/sqlite3.dll" },
+      },
+      notifier = { enabled = true },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
+      scroll = { enabled = false },
+      statuscolumn = { enabled = false },
+      words = { enabled = true },
+      zen = { enabled = true },
     }
-
-    for _, button in ipairs(opts.config.center) do
-      button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
-      button.key_format = "  %s"
-    end
-
-    -- close Lazy and re-open when the dashboard is ready
-    if vim.o.filetype == "lazy" then
-      vim.cmd.close()
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "DashboardLoaded",
-        callback = function()
-          require("lazy").show()
-        end,
-      })
-    end
-
-    return opts
   end,
+  keys = {
+    {
+      "<C-k><C-k>",
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = "Smart Find Files",
+    },
+  },
 }

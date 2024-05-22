@@ -1,7 +1,10 @@
 return {
   {
     "Leiyi548/flash-zhh.nvim",
-    dependencies = "Leiyi548/flash.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "folke/flash.nvim",
+    },
     keys = {
       {
         "s",
@@ -9,15 +12,15 @@ return {
         function()
           require("flash-zhh").jump()
         end,
-        desc = "Flash between Chinese(tiger code)",
+        desc = "Flash between Chinese",
       },
       {
         "r",
         mode = { "o" },
         function()
-          require("flash-zhh").jump()
+          require("flash-zhh").remote()
         end,
-        desc = "Flash between Chinese(tiger code)",
+        desc = "Flash between Chinese",
       },
     },
   },

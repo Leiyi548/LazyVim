@@ -1,10 +1,10 @@
 return {
   "akinsho/bufferline.nvim",
-  enabled = false,
+  enabled = true,
   opts = {
     options = {
-      mode = "tabs", -- set to "tabs" to only show tabpages instead
-      always_show_bufferline = false,
+      mode = "buffers", -- set to "tabs" to only show tabpages instead
+      always_show_bufferline = true,
       diagnostics = false,
     },
   },
