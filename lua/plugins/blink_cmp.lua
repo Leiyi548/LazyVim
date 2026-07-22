@@ -10,10 +10,55 @@ return {
     opts.sources.providers.blink_im_zhh = {
       name = "虎码",
       module = "blink-im-zhh",
-      opts = { enable = false },
+      opts = { enable = false, maxn = 2 }, -- maxn 与 max_items 对齐，少算候选
       max_items = 2, -- ← force only 2 items in the menu
       score_offset = 1000, -- 高于 lazydev(100)/codecompanion(10)/path(3)/buffer(-3)，IM 候选排第一
+      -- 默认只在 cmdline / snacks 输入框启用：那里虎码是唯一的 source，打快也不卡；
+      -- 普通 buffer 默认不挂，避免和 LSP/path/buffer 多 source 抢事件循环导致高速输入跟不上。
+      -- 需要时在普通 buffer 用 <C-.> 手动开（im.config.enable=true 即纳入）。
+      enabled = function()
+        local ok, im = pcall(require, "blink-im-zhh")
+        if ok and im.config and im.config.enable then
+          return true
+        end
+        if vim.api.nvim_get_mode().mode == "c" then
+          return true
+        end
+        local ft = vim.bo[vim.api.nvim_get_current_buf()].filetype
+        return ft == "snacks_picker_input"
+      end,
     }
+    -- 普通 buffer 且开启虎码时，只保留 虎码 + buffer + path，关掉 lsp（含 lazydev 等 lsp 后端），
+    -- 否则 lsp 每键触发会把事件循环压住，导致高速输入跟不上。
+    local function im_on_in_normal_buffer()
+      local ok, im = pcall(require, "blink-im-zhh")
+      if not (ok and im.config and im.config.enable) then
+        return false
+      end
+      if vim.api.nvim_get_mode().mode == "c" then
+        return false
+      end
+      local ft = vim.bo[vim.api.nvim_get_current_buf()].filetype
+      return not (ft == "snacks_picker_input" or ft == "snacks_input" or ft == "snacks_terminal")
+    end
+    -- lsp 是内置 provider，需 merge 保留 module，不能直接覆盖
+    opts.sources.providers.lsp = vim.tbl_deep_extend("force", {
+      name = "LSP",
+      module = "blink.cmp.sources.lsp",
+      fallbacks = { "buffer" },
+    }, opts.sources.providers.lsp or {}, {
+      enabled = function()
+        return not im_on_in_normal_buffer()
+      end,
+    })
+    if opts.sources.providers.lazydev then
+      opts.sources.providers.lazydev = vim.tbl_deep_extend("force", opts.sources.providers.lazydev, {
+        enabled = function()
+          return not im_on_in_normal_buffer()
+        end,
+      })
+    end
+
     -- 仅在 snacks 输入框里出虎码，屏蔽 lsp/path/buffer 等其它源
     opts.sources.per_filetype = opts.sources.per_filetype or {}
     opts.sources.per_filetype.snacks_picker_input = { "blink_im_zhh" }
@@ -24,7 +69,7 @@ return {
         -- cmdline 模式启用虎码,path source，buffer source 不生效
         return { "blink_im_zhh", "path", "cmdline" }
       end,
-      completion = { menu = { auto_show = true } },
+      completion = {documentation={ auto_show=true }, menu = { auto_show = true } },
       keymap = {
         -- 和 insert 模式保持一致的快捷键
         ["<Up>"] = {
@@ -86,36 +131,58 @@ return {
       },
     }
 
-    opts.completion = {
-      menu = {
-        draw = {
-          columns = {
-            { "kind_icon", "label", "label_description" },
-            { "my_kind" },
-            { "my_source" },
+    -- 注意：不要整体覆盖 opts.completion，否则会丢掉 LazyVim 默认的 documentation 配置
+    opts.completion = opts.completion or {}
+    opts.completion.menu = {
+      draw = {
+        columns = {
+          { "kind_icon", "label", "label_description" },
+          { "my_kind" },
+          { "my_source" },
+        },
+        components = {
+          my_kind = {
+            text = function(ctx)
+              -- ctx.label 是 kind 的名称字符串，如 "Function"
+              return "(" .. (ctx.kind or "") .. ")"
+            end,
+            width = { max = 20 },
+            highlight = function(ctx)
+              return ctx.kind_hl
+            end,
           },
-          components = {
-            my_kind = {
-              text = function(ctx)
-                -- ctx.label 是 kind 的名称字符串，如 "Function"
-                return "(" .. (ctx.kind or "") .. ")"
-              end,
-              width = { max = 20 },
-              highlight = function(ctx)
-                return ctx.kind_hl
-              end,
-            },
-            my_source = {
-              text = function(ctx)
-                -- ctx.item.source_name 包含 source 名称
-                return "[" .. (ctx.item.source_name or "") .. "]"
-              end,
-              width = { max = 20 },
-            },
+          my_source = {
+            text = function(ctx)
+              -- ctx.item.source_name 包含 source 名称
+              return "[" .. (ctx.item.source_name or "") .. "]"
+            end,
+            width = { max = 20 },
           },
         },
       },
     }
+    -- 默认自动显示补全文档（blink.cmp 官方默认值 auto_show = false，需手动打开）
+    opts.completion.documentation = {
+      auto_show = true,
+      auto_show_delay_ms = 0,
+    }
+    -- IM 候选不需要文档：开启虎码时关闭补全文档弹窗（顺带省去每次按键的 doc 解析/定时器开销），
+    -- 关闭虎码后恢复 LSP 等文档弹窗。blink 的 auto_show 只接受布尔，故用 toggle 联动。
+    do
+      local ok, im = pcall(require, "blink-im-zhh")
+      if ok and im and im.toggle and not im._toggle_wrapped then
+        local orig_toggle = im.toggle
+        im.toggle = function()
+          local enabled = orig_toggle()
+          local ok2, bcfg = pcall(require, "blink.cmp.config")
+          if ok2 and bcfg.completion then
+            bcfg.completion.documentation.auto_show = not enabled
+          end
+          return enabled
+        end
+        im._toggle_wrapped = true
+      end
+    end
 
     -- <Space> / <CR> 只在补全菜单可见 + IM 开 + 选中 IM 候选时拦截
     opts.keymap = opts.keymap or {}
