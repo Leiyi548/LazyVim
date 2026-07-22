@@ -26,7 +26,13 @@ if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   -- neovide font setting
   -- https://www.nerdfonts.com/font-downloads
-  vim.o.guifont = "FiraCode Nerd Font,霞鹜文楷 GB 屏幕阅读版,TumanPUA:h16" -- text below applies for VimScript
+  local username = os.getenv("USERNAME")
+  if (username == "72154") then
+    vim.o.guifont = "FiraCode Nerd Font,霞鹜文楷 GB 屏幕阅读版,TumanPUA:h14"
+  else
+    vim.o.guifont = "FiraCode Nerd Font,霞鹜文楷 GB 屏幕阅读版,TumanPUA:h16"
+  end
+
   vim.g.neovide_scroll_animation_length = 0.1
   vim.g.neovide_cursor_animate_in_insert_mode = false
   -- vim.g.neovide_cursor_animation_length = 0
