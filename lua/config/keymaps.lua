@@ -3,10 +3,6 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
--- force delete buffer
--- stylua: ignore
--- map("n", "<leader>bx", function() require("mini.bufremove").delete(0, true) end, { desc = "Delete word" })
-
 -- 让 ctrl+delete 等于 ctrl+w 去删除光标前面的单词
 map({ "i", "c" }, "<C-BS>", "<C-w>", { desc = "Delete word" })
 
@@ -112,6 +108,11 @@ map("n", "<leader>snm", "<cmd>message<cr>", { desc = "message" })
 -- textobject
 map({ "x", "o" }, "il", ":<c-u>normal! g_v^<cr>", { desc = "select current line not include whitespace" })
 map({ "x", "o" }, "al", ":<c-u>normal! $v0<cr>", { desc = "select current line include whitespace" })
+map({ "x", "o" }, "ae", ":<c-u>normal! ggVG<cr>", { desc = "select entire buffer" })
+
+-- tab
+map("n", "[t", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+map("n", "]t", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 
 -- blink.cmp 适配虎码
 map({ "i", "x", "n" }, "<C-.>", "<cmd>BlinkImZhhToggle<cr>", { desc = "启用虎码" })
