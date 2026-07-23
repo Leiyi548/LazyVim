@@ -177,6 +177,34 @@ return {
       end
     end
 
+    -- 让 picker 左侧标题栏显示「当前浏览目录 + 原来源标题」
+    -- 例如：~/projects/foo · Files
+    -- 原理：default 等布局左侧框标题模板是 "{title} {live} {flags}"，{title} 解析成
+    -- self.title。我们在原 update_titles 调用前把 self.title 临时改成「cwd + 原标题」，
+    -- 调用完立即还原，避免影响别处对 self.title 的使用（如 source 名）。
+    local ok_p, Picker = pcall(require, "snacks.picker.core.picker")
+    if ok_p and Picker and not Picker.__cwd_title_patched then
+      Picker.__cwd_title_patched = true
+      local orig_update_titles = Picker.update_titles
+      Picker.update_titles = function(self)
+        local orig = self.title
+        local ok_cwd, cwd = pcall(function()
+          return self:cwd()
+        end)
+        if ok_cwd and cwd and cwd ~= "" then
+          -- 统一成 / 分隔符，并把主目录替换成 ~（与上面 show_abs_path 逻辑保持一致）
+          local abs = vim.fn.fnamemodify(cwd, ":p"):gsub([[\]], "/"):gsub("/$", "")
+          local home = vim.fn.fnamemodify(vim.fn.expand("~"), ":p"):gsub([[\]], "/"):gsub("/$", "")
+          if home ~= "" and abs:lower():sub(1, #home) == home:lower() and abs:sub(#home + 1, #home + 1) == "/" then
+            abs = "~" .. abs:sub(#home + 1)
+          end
+          self.title = abs .. "  ·  " .. orig
+        end
+        orig_update_titles(self)
+        self.title = orig -- 还原，保持 self.title 仍是纯来源名
+      end
+    end
+
     return {
       animate = { enabled = false },
       bigfile = { enabled = true },
