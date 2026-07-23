@@ -26,6 +26,8 @@ map({ "n", "x", "o" }, "<S-l>", "$", { desc = "End" })
 -- vim.keymap.del("n", "<C-l>")
 -- vim.keymap.del({ "n", "x" }, "j")
 -- vim.keymap.del({ "n", "x" }, "k")
+-- 我不用宏，删除掉，以免误触
+map("n", "q", "<nop>")
 vim.keymap.del("n", "<leader>l")
 map("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode in terminal" })
 
