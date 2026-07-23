@@ -81,15 +81,15 @@ map("v", "<M-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<M-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- window jump
--- map("n", "<leader>1", "1<C-w>w", { desc = "Go to window 1" })
--- map("n", "<leader>2", "2<C-w>w", { desc = "Go to window 2" })
--- map("n", "<leader>3", "3<C-w>w", { desc = "Go to window 3" })
--- map("n", "<leader>4", "4<C-w>w", { desc = "Go to window 4" })
--- map("n", "<leader>5", "5<C-w>w", { desc = "Go to window 5" })
--- map("n", "<leader>6", "6<C-w>w", { desc = "Go to window 6" })
--- map("n", "<leader>7", "7<C-w>w", { desc = "Go to window 7" })
--- map("n", "<leader>8", "8<C-w>w", { desc = "Go to window 8" })
--- map("n", "<leader>9", "9<C-w>w", { desc = "Go to window 9" })
+map("n", "<leader>1", "1<C-w>w", { desc = "Go to window 1" })
+map("n", "<leader>2", "2<C-w>w", { desc = "Go to window 2" })
+map("n", "<leader>3", "3<C-w>w", { desc = "Go to window 3" })
+map("n", "<leader>4", "4<C-w>w", { desc = "Go to window 4" })
+map("n", "<leader>5", "5<C-w>w", { desc = "Go to window 5" })
+map("n", "<leader>6", "6<C-w>w", { desc = "Go to window 6" })
+map("n", "<leader>7", "7<C-w>w", { desc = "Go to window 7" })
+map("n", "<leader>8", "8<C-w>w", { desc = "Go to window 8" })
+map("n", "<leader>9", "9<C-w>w", { desc = "Go to window 9" })
 
 -- change window origin keymap
 map("n", "<C-w>x", "<C-w>s", { desc = "横向分屏当前 buffer" })
@@ -129,3 +129,6 @@ end, { desc = "flash虎码跳转" })
 map({ "o" }, "r", function()
   require("flash-zhh").jump()
 end, { desc = "flash虎码跳转" })
+
+-- force quit neovim
+map({ "n" }, "<leader>qq", "<cmd>qa!<cr>", { desc = "force quit neovim" })
