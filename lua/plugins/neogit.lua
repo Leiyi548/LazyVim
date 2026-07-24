@@ -12,6 +12,19 @@ return {
       status = {
         ["s"] = false,
         ["a"] = "Stage",
+        -- section 跳转
+        ["gc"] = function()
+          vim.fn.search("Recent Commits", "w")
+        end,
+        ["gu"] = function()
+          vim.fn.search("Unstaged changes", "w")
+        end,
+        ["gs"] = function()
+          vim.fn.search("Staged changes", "w")
+        end,
+        ["gt"] = function()
+          vim.fn.search("Untracked files", "w")
+        end,
       },
     },
   },
