@@ -116,6 +116,21 @@ map({ "x", "o" }, "ae", ":<c-u>normal! ggVG<cr>", { desc = "select entire buffer
 map("n", "[t", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 map("n", "]t", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 
+-- toggle between last used tabs
+local last_tab = vim.fn.tabpagenr()
+vim.api.nvim_create_autocmd("TabLeave", {
+  callback = function()
+    last_tab = vim.fn.tabpagenr()
+  end,
+})
+
+map("n", "<leader><tab><tab>", function()
+  local current = vim.fn.tabpagenr()
+  if last_tab and last_tab ~= current and last_tab <= vim.fn.tabpagenr("$") then
+    vim.cmd("tabnext " .. last_tab)
+  end
+end, { desc = "Toggle last tab" })
+
 -- blink.cmp 适配虎码
 map({ "i", "x", "n" }, "<C-.>", "<cmd>BlinkImZhhToggle<cr>", { desc = "启用虎码" })
 map("c", "<C-.>", function()
