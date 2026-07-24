@@ -18,7 +18,12 @@ return {
       -- 需要时在普通 buffer 用 <C-.> 手动开（im.config.enable=true 即纳入）。
       enabled = function()
         local ok, im = pcall(require, "blink-im-zhh")
-        if ok and im.config and im.config.enable then
+        local im_on = ok and im.config and im.config.enable
+        if vim.api.nvim_get_mode().mode == "t" then
+          -- 终端模式：仅在 floaterm 且虎码已开时启用（不污染其它终端/REPL）
+          return im_on and vim.bo[vim.api.nvim_get_current_buf()].filetype == "floaterm"
+        end
+        if im_on then
           return true
         end
         if vim.api.nvim_get_mode().mode == "c" then
@@ -42,15 +47,20 @@ return {
       return not (ft == "snacks_picker_input" or ft == "snacks_input" or ft == "snacks_terminal")
     end
     -- lsp 是内置 provider，需 merge 保留 module，不能直接覆盖
-    opts.sources.providers.lsp = vim.tbl_deep_extend("force", {
-      name = "LSP",
-      module = "blink.cmp.sources.lsp",
-      fallbacks = { "buffer" },
-    }, opts.sources.providers.lsp or {}, {
-      enabled = function()
-        return not im_on_in_normal_buffer()
-      end,
-    })
+    opts.sources.providers.lsp = vim.tbl_deep_extend(
+      "force",
+      {
+        name = "LSP",
+        module = "blink.cmp.sources.lsp",
+        fallbacks = { "buffer" },
+      },
+      opts.sources.providers.lsp or {},
+      {
+        enabled = function()
+          return not im_on_in_normal_buffer()
+        end,
+      }
+    )
     if opts.sources.providers.lazydev then
       opts.sources.providers.lazydev = vim.tbl_deep_extend("force", opts.sources.providers.lazydev, {
         enabled = function()
@@ -69,7 +79,7 @@ return {
         -- cmdline 模式启用虎码,path source，buffer source 不生效
         return { "blink_im_zhh", "path", "cmdline" }
       end,
-      completion = {documentation={ auto_show=true }, menu = { auto_show = true } },
+      completion = { documentation = { auto_show = true }, menu = { auto_show = true } },
       keymap = {
         -- 和 insert 模式保持一致的快捷键
         ["<Up>"] = {
@@ -110,9 +120,13 @@ return {
             if require("blink-im-zhh").getStatus() and cmp.is_visible() then
               local item = require("blink.cmp.completion.list").get_selected_item()
               if item and item.source_name == "虎码" then
+                -- 输入法候选：取消补全，只上屏编码
                 cmp.cancel()
                 return true
               end
+              -- 其它来源（如 LSP）：确认补全第一项
+              cmp.accept()
+              return true
             end
             return false
           end,
@@ -127,6 +141,28 @@ return {
             return false
           end,
           "fallback",
+        },
+      },
+    }
+
+    -- terminal 模式（floaterm）：开启 blink.cmp + 虎码，便于在终端里打中文
+    opts.term = {
+      enabled = true,
+      sources = { "blink_im_zhh" },
+      keymap = {
+        -- 终端里 Space/Enter 要留给命令行（空格、回车执行命令），故用 <C-y> 上屏中文，
+        -- <Up>/<Down>/<C-p>/<C-n> 选择候选，<C-e> 取消补全菜单
+        ["<Up>"] = { "select_prev", "fallback" },
+        ["<Down>"] = { "select_next", "fallback" },
+        ["<C-p>"] = { "select_prev", "fallback" },
+        ["<C-n>"] = { "select_next", "fallback" },
+        ["<C-y>"] = { "select_and_accept" },
+        ["<C-e>"] = { "hide", "fallback" },
+      },
+      completion = {
+        documentation = { auto_show = false },
+        list = {
+          selection = { auto_insert = false },
         },
       },
     }
@@ -183,6 +219,21 @@ return {
         im._toggle_wrapped = true
       end
     end
+
+    -- 进入终端（含 floaterm 跑的 fzf 等 TUI）时，清掉该 buffer 残留的 _insert_start 边界。
+    -- 原因：floaterm 会复用终端 buffer，上次在里头跑 shell 时记的 _insert_start 是一个很大的列值；
+    -- 换 fzf 后输入行很短，边界把整行输入都跳过 → 虎码 key 为空 → 整个菜单消失。
+    -- 而手动关/开虎码会让 M.toggle 把 _insert_start 重写回当前光标列，所以“关了重开又有了”。
+    -- 终端输入没有“插入起点”概念，直接用整行做编码即可。
+    vim.api.nvim_create_autocmd("TermEnter", {
+      callback = function()
+        local ok, im = pcall(require, "blink-im-zhh")
+        if ok and im.config then
+          im.config._insert_start = im.config._insert_start or {}
+          im.config._insert_start[vim.api.nvim_get_current_buf()] = nil
+        end
+      end,
+    })
 
     -- <Space> / <CR> 只在补全菜单可见 + IM 开 + 选中 IM 候选时拦截
     opts.keymap = opts.keymap or {}
