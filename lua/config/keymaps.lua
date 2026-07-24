@@ -132,7 +132,7 @@ map("n", "<leader><tab><tab>", function()
 end, { desc = "Toggle last tab" })
 
 -- blink.cmp 适配虎码
-map({ "i", "x", "n" }, "<C-.>", "<cmd>BlinkImZhhToggle<cr>", { desc = "启用虎码" })
+map({ "i", "x", "n", "t" }, "<C-.>", "<cmd>BlinkImZhhToggle<cr>", { desc = "启用虎码" })
 map("c", "<C-.>", function()
   require("blink-im-zhh").toggle()
 end, { desc = "启用虎码 (cmdline)" })
