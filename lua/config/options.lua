@@ -22,6 +22,29 @@ vim.opt.titlestring = 'neovide %{expand("%:p")}'
 -- vim.opt.shell = "powershell.exe pwsh"
 -- end
 
+-- floaterm 用 pwsh（cmd.exe 行编辑器对注入式宽字符有缺陷，虎码上屏会顶字）。
+-- 放在 options.lua 保证先于 vim-floaterm 的 plugin 文件执行，不受懒加载时机影响。
+-- 用 exepath 解析绝对路径，避免 Neovide 图形界面启动时 PATH 与终端不一致导致找不到 pwsh。
+do
+  local pwsh = vim.fn.exepath("pwsh")
+  if pwsh == "" then
+    -- GUI 环境 PATH 可能不含 WindowsApps，回退到已知的默认安装位置
+    local candidates = {
+      os.getenv("LOCALAPPDATA") and (os.getenv("LOCALAPPDATA") .. "\\Microsoft\\WindowsApps\\pwsh.exe") or nil,
+      "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    }
+    for _, c in ipairs(candidates) do
+      if c and vim.fn.filereadable(c) == 1 then
+        pwsh = c
+        break
+      end
+    end
+  end
+  if pwsh ~= "" then
+    vim.g.floaterm_shell = pwsh .. " -NoLogo"
+  end
+end
+
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   -- neovide font setting
