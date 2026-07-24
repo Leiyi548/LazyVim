@@ -136,6 +136,79 @@ local function week_header(concat, append)
   return tbl
 end
 
+-- 搜索并跳转到当前所有 tab 的 picker
+local function tabs_picker()
+  local tabs = vim.api.nvim_list_tabpages()
+  if #tabs <= 1 then
+    vim.notify("当前只有一个 tab")
+    return
+  end
+
+  -- 收集当前所有 tabpage 的信息，供搜索与跳转
+  local items = {}
+  local current_tab = vim.api.nvim_get_current_tabpage()
+  for tabnr, tabpage in ipairs(vim.api.nvim_list_tabpages()) do
+    local win = vim.api.nvim_tabpage_get_win(tabpage)
+    local buf = vim.api.nvim_win_get_buf(win)
+    local name = vim.api.nvim_buf_get_name(buf)
+    local basename = name ~= "" and vim.fn.fnamemodify(name, ":t") or "[No Name]"
+    local abs = name ~= "" and vim.fn.fnamemodify(name, ":p"):gsub([[\]], "/") or ""
+    local wins = #vim.api.nvim_tabpage_list_wins(tabpage)
+    local current = tabpage == current_tab
+    table.insert(items, {
+      idx = tabnr,
+      tabpage = tabpage,
+      buf = buf,
+      current = current,
+      basename = basename,
+      abs = abs,
+      wins = wins,
+      -- text 决定模糊搜索匹配的内容（含编号、文件名、绝对路径）
+      text = ("%d %s %s"):format(tabnr, basename, abs),
+    })
+  end
+
+  Snacks.picker({
+    title = "Tabs",
+    focus = "list",
+    finder = function()
+      return items
+    end,
+    format = function(item, picker)
+      local ret = {
+        { ("%d"):format(item.idx), item.current and "SnacksPickerFlag" or "Comment" },
+        { " " },
+        { item.current and "✸ " or "  ", item.current and "SnacksPickerFlag" or "Comment" },
+        { item.basename, "SnacksPickerFile" },
+        { ("   %d"):format(item.wins), "Comment" },
+      }
+      if item.current then
+        table.insert(ret, { " current", "SnacksPickerFlag" })
+      end
+      return ret
+    end,
+    preview = function(ctx)
+      local item = ctx.item
+      if item and item.buf and vim.api.nvim_buf_is_valid(item.buf) then
+        ctx.preview:reset()
+        ctx.preview:set_buf(item.buf)
+        ctx.preview:set_title(item.basename)
+      else
+        ctx.preview:notify("No buffer to preview", "warn")
+      end
+    end,
+    confirm = function(picker, item)
+      if not item or not item.tabpage or not vim.api.nvim_tabpage_is_valid(item.tabpage) then
+        picker:close()
+        return
+      end
+      -- 先关闭 picker，再跳转到对应 tab（避免 picker 浮窗停留在目标 tab 上）
+      picker:close()
+      vim.api.nvim_set_current_tabpage(item.tabpage)
+    end,
+  })
+end
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -341,6 +414,13 @@ return {
         })
       end,
       desc = "Search Buffers (centered, no preview)",
+    },
+    {
+      "<leader>,",
+      function()
+        tabs_picker()
+      end,
+      desc = "Search Tabs (jump)",
     },
   },
 }
